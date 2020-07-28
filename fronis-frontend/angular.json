@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fronis-frontend"
+    }
+  },
+  "defaultProject": "fronis-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
