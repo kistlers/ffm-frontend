@@ -11,6 +11,7 @@ import { NewsComponent } from "./pages/news/news.component";
 import { AboutusComponent } from "./pages/aboutus/aboutus.component";
 import { KontaktComponent } from "./pages/kontakt/kontakt.component";
 import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

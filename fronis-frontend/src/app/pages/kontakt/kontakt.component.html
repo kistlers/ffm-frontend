@@ -13,44 +13,52 @@
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="media-container-column col-lg-8" data-form-type="formoid">
-        <!---Formbuilder Form--->
-        <form action="https://mobirise.eu/" class="mbr-form form-with-styler" data-form-title="Mobirise Form"
-              method="POST"><input data-form-email="true" name="email" type="hidden"
-                                   value="p8IX2lsXSa2F2R6CLFVU1xkmNK3A1OkcINVMQ2PxX77syVAFV9TJF5nuX6mOgDeGMd+6WoxFFqJMdDLhmV/A8gzhQSXM59KznftS5OLOMz9ukeBw53kgUUFcMxJg+XSt">
+      <div class="media-container-column col-lg-8">
+        <form (ngSubmit)="onSubmit()" class="mbr-form form-with-styler"
+              [formGroup]="formGroup">
           <div class="row">
-            <div class="alert alert-success col-12" data-form-alert="" hidden="hidden">Danke für deine
+            <div hidden="hidden" data-formclass="alert alert-success col-12">Herzlichen Dank für deine
               Kontaktaufnahme!
             </div>
-            <div class="alert alert-danger col-12" data-form-alert-danger="" hidden="hidden">
+            <div hidden="hidden" class="alert alert-danger col-12">
             </div>
           </div>
           <div class="dragArea row">
-            <div class="col-md-4  form-group" data-for="name">
-              <label class="form-control-label mbr-fonts-style display-7" for="name-form1-m">Name</label>
-              <input class="form-control display-7" data-form-field="Name" id="name-form1-m" name="name"
-                     required="required"
-                     type="text">
+            <div class="col-md-6  form-group" data-for="name">
+              <label for="name-form1-m" class="form-control-label mbr-fonts-style display-7">Name</label>
+              <input type="text" name="name" required="required" class="form-control display-7"
+                     id="name-form1-m" formControlName="name">
+              <small
+                class="text-danger">{{isNameInvalid() && name.errors?.required ? "Name darf nicht leer sein" : "&nbsp;"}}</small>
+              <small
+                class="text-danger">{{isNameInvalid() && name.errors?.pattern ? "Bitte geben Sie einen gültigen Namen an" : "&nbsp;"}}</small>
             </div>
-            <div class="col-md-4  form-group" data-for="email">
-              <label class="form-control-label mbr-fonts-style display-7" for="email-form1-m">Email</label>
-              <input class="form-control display-7" data-form-field="Email" id="email-form1-m" name="email"
-                     required="required" type="email">
+            <div class="col-md-6  form-group" data-for="email">
+              <label for="email-form1-m" class="form-control-label mbr-fonts-style display-7">Email</label>
+              <input [class.is-invalid]="email.invalid && email.touched" type="email" name="email" required="required"
+                     class="form-control display-7" id="email-form1-m" formControlName="email">
+              <small
+                class="text-danger">{{isEmailInvalid() && email.errors?.required ? "Email darf nicht leer sein" : "&nbsp;"}}</small>
+              <small
+                class="text-danger">{{isEmailInvalid() && email.errors?.pattern ? "Bitte geben Sie eine gültige E-Mail-Adresse an" : "&nbsp;"}}</small>
             </div>
-            <div class="col-md-4  form-group" data-for="phone">
-              <label class="form-control-label mbr-fonts-style display-7" for="phone-form1-m">Telefon</label>
-              <input class="form-control display-7" data-form-field="Phone" id="phone-form1-m" name="phone" type="tel">
+
+            <div data-for="message" class="col-md-12 form-group">
+              <label for="message-form1-m" class="form-control-label mbr-fonts-style display-7">Nachricht</label>
+              <textarea name="message" required="required" class="form-control display-7"
+                        id="message-form1-m" formControlName="message"></textarea>
+              <small
+                class="text-danger">{{isMessageInvalid() && message.errors?.required ? "Nachricht darf nicht leer sein" : "&nbsp;"}}</small>
+              <small
+                class="text-danger">{{isMessageInvalid() && message.errors?.pattern ? "Bitte geben Sie eine gültige Nachricht ein" : "&nbsp;"}}</small>
             </div>
-            <div class="col-md-12 form-group" data-for="message">
-              <label class="form-control-label mbr-fonts-style display-7" for="message-form1-m">Nachricht</label>
-              <textarea class="form-control display-7" data-form-field="Message" id="message-form1-m"
-                        name="message"></textarea>
-            </div>
+
             <div class="col-md-12 input-group-btn align-center">
-              <button class="btn btn-primary btn-form display-4" type="submit">Absenden</button>
+              <button type="submit" class="btn btn-primary btn-form display-4" [disabled]="submitDisabled()">Absenden
+              </button>
             </div>
           </div>
-        </form><!---Formbuilder Form--->
+        </form>
       </div>
     </div>
   </div>
