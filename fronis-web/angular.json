@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fronis-frontend": {
+    "fronis-web": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fronis-frontend",
+            "outputPath": "dist/fronis-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fronis-frontend:build"
+            "browserTarget": "fronis-web:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fronis-frontend:build:production"
+              "browserTarget": "fronis-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fronis-frontend:build"
+            "browserTarget": "fronis-web:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fronis-frontend:serve"
+            "devServerTarget": "fronis-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fronis-frontend:serve:production"
+              "devServerTarget": "fronis-web:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "fronis-frontend",
+  "defaultProject": "fronis-web",
   "cli": {
     "analytics": false
   }
