@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-kontakt",
@@ -22,31 +22,31 @@ export class KontaktComponent implements OnInit {
       Validators.pattern(/^.*[a-z0-9]+.*$/)]),
   });
 
-  get name() {
+  get name(): AbstractControl {
     return this.formGroup.get("name");
   }
 
-  get email() {
+  get email(): AbstractControl {
     return this.formGroup.get("email");
   }
 
-  get message() {
+  get message(): AbstractControl {
     return this.formGroup.get("message");
   }
 
-  public isNameInvalid() {
+  public isNameInvalid(): boolean {
     return (this.name.invalid && this.name.touched) || (this.name.invalid && this.submitPressed) || this.name.dirty;
   }
 
-  public isEmailInvalid() {
+  public isEmailInvalid(): boolean {
     return (this.email.invalid && this.email.touched) || (this.email.invalid && this.submitPressed) || this.email.dirty;
   }
 
-  public isMessageInvalid() {
+  public isMessageInvalid(): boolean {
     return (this.message.invalid && this.message.touched) || (this.message.invalid && this.submitPressed) || this.message.dirty;
   }
 
-  public submitDisabled() {
+  public submitDisabled(): boolean {
     return false;
   }
 
