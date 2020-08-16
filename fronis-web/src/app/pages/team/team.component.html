@@ -1,110 +1,14 @@
 <section class="engine"><a href="https://mobirise.info/e">make your own site</a></section>
-<section class="section-table cid-s5JF6ioO7g mbr-fullscreen" id="table1-e">
+<section class="section-table cid-s5JF6ioO7g mbr-fullscreen flex-column-center" id="table1-e">
 
+  <app-team-table *ngIf="playersGoal" [position]="playerPosition2String(playersGoal.position)"
+                  [players]="playersGoal.players"
+                  class="container"></app-team-table>
+  <app-team-table *ngIf="playersField" [position]="playerPosition2String(playersField.position)"
+                  [players]="playersField.players"
+                  class="container table-margin-top"></app-team-table>
+  <app-team-table *ngIf="playersStaff" [position]="playerPosition2String(playersStaff.position)"
+                  [players]="playersStaff.players"
+                  class="container table-margin-top"></app-team-table>
 
-  <div class="container container-table">
-    <h2 class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-      Spieler</h2>
-
-    <div class="table-wrapper">
-      <div class="container">
-        <div class="row search">
-          <div class="col-md-6"></div>
-          <div class="col-md-6">
-            <div class="dataTables_filter">
-              <label class="searchInfo mbr-fonts-style display-7">Search:</label>
-              <input class="form-control input-sm" disabled="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container scroll">
-        <table cellspacing="0" class="table isSearch" data-empty="No matching records found">
-          <thead>
-            <tr class="table-heads ">
-
-
-              <th class="head-item mbr-fonts-style display-7">
-                NAME
-              </th>
-              <th class="head-item mbr-fonts-style display-7">SPITZNAME</th>
-              <th class="head-item mbr-fonts-style display-7">
-                #
-              </th>
-              <th class="head-item mbr-fonts-style display-7">
-                POSITION
-              </th>
-              <th class="head-item mbr-fonts-style display-7">JAHRGANG</th>
-            </tr>
-          </thead>
-
-          <tbody>
-
-
-            <tr>
-
-
-              <td class="body-item mbr-fonts-style display-7">Jeanna Schmal</td>
-              <td class="body-item mbr-fonts-style display-7">Jeanna</td>
-              <td class="body-item mbr-fonts-style display-7">27</td>
-              <td class="body-item mbr-fonts-style display-7">Feldspieler</td>
-              <td class="body-item mbr-fonts-style display-7">1990</td>
-            </tr>
-            <tr>
-
-
-              <td class="body-item mbr-fonts-style display-7">Caren Rials</td>
-              <td class="body-item mbr-fonts-style display-7">Caren</td>
-              <td class="body-item mbr-fonts-style display-7">27</td>
-              <td class="body-item mbr-fonts-style display-7">Feldspieler</td>
-              <td class="body-item mbr-fonts-style display-7">1990</td>
-            </tr>
-            <tr>
-
-
-              <td class="body-item mbr-fonts-style display-7">Leon Rogol</td>
-              <td class="body-item mbr-fonts-style display-7">Rogol</td>
-              <td class="body-item mbr-fonts-style display-7">27</td>
-              <td class="body-item mbr-fonts-style display-7">Feldspieler</td>
-              <td class="body-item mbr-fonts-style display-7">1990</td>
-            </tr>
-            <tr>
-
-
-              <td class="body-item mbr-fonts-style display-7">Shala Barrera</td>
-              <td class="body-item mbr-fonts-style display-7">Barrera</td>
-              <td class="body-item mbr-fonts-style display-7">27</td>
-              <td class="body-item mbr-fonts-style display-7">Feldspieler</td>
-              <td class="body-item mbr-fonts-style display-7">1990</td>
-            </tr>
-            <tr>
-
-
-              <td class="body-item mbr-fonts-style display-7">Shala Barrera</td>
-              <td class="body-item mbr-fonts-style display-7">Shala</td>
-              <td class="body-item mbr-fonts-style display-7">27</td>
-              <td class="body-item mbr-fonts-style display-7">Torhüter</td>
-              <td class="body-item mbr-fonts-style display-7">1990</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="container table-info-container">
-        <div class="row info">
-          <div class="col-md-6">
-            <div class="dataTables_info mbr-fonts-style display-7">
-              <span class="infoBefore">Showing</span>
-              <span class="inactive infoRows"></span>
-              <span class="infoAfter">entries</span>
-              <span class="infoFilteredBefore">(filtered from</span>
-              <span class="inactive infoRows"></span>
-              <span class="infoFilteredAfter"> total entries)</span>
-            </div>
-          </div>
-          <div class="col-md-6"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>

@@ -12,6 +12,8 @@ import { AboutusComponent } from "./pages/aboutus/aboutus.component";
 import { KontaktComponent } from "./pages/kontakt/kontakt.component";
 import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { TeamTableComponent } from "./pages/team/team-table/team-table.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     NewsComponent,
     AboutusComponent,
     KontaktComponent,
-    SponsorenComponent
+    SponsorenComponent,
+    TeamTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],
