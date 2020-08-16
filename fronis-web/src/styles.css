@@ -4,3 +4,18 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.table-margin-top {
+    margin-top: 100px;
+}
+
+.table-heads-no-hover th {
+    background: unset !important;
+    color: unset !important;
+}
+
+.table-rows-hover:hover td {
+    transition-duration: 300ms;
+    background: #cccccc !important;
+    color: #000000 !important;
+}
