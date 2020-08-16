@@ -49,8 +49,6 @@
               "src/assets/viewportchecker/jquery.viewportchecker.js",
               "src/assets/parallax/jarallax.min.js",
               "src/assets/theme/js/script.js",
-              "src/assets/datatables/jquery.data-tables.min.js",
-              "src/assets/datatables/data-tables.bootstrap4.min.js"
             ]
           },
           "configurations": {
