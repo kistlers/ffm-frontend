@@ -10,29 +10,21 @@ export default {
     const {page, perPage} = params.pagination;
     const {field, order} = params.sort;
     const query = {
+      ...params.filter,
       page: page - 1,
       perPage: perPage,
       field: field,
       order: order,
       query: params.filter.q,
-      filter: JSON.stringify({...params.filter})
+      // filter: JSON.stringify({...params.filter})
     };
-
-
-    const rangeStart = (page - 1) * perPage;
-    const rangeEnd = page * perPage - 1;
-    // Chrome doesn't return `X-Total-Count` header if no `Range` is provided in the request.
-    const options = {headers: new Headers({
-        range: `${resource}=${rangeStart}-${rangeEnd}`
-    })};
 
     const url = `${API_URL}/${resource}?${stringify(query)}`;
 
-    return httpClient(url, options).then(({headers, json}: any) => {
-      console.log(headers);
+    return httpClient(url).then(({headers, json}: any) => {
       return {
         data: json,
-        total: 5, //parseInt(headers.get("X-Total-Count").split("/").pop(), 10),
+        total: parseInt(headers.get("Content-Range").split("/").pop(), 10),
       };
     });
   },
@@ -65,7 +57,7 @@ export default {
 
     return httpClient(url).then(({headers, json}: any) => ({
       data: json,
-      total: parseInt(headers.get("X-Total-Count").split("/").pop(), 10),
+      total: parseInt(headers.get("Content-Range").split("/").pop(), 10),
     }));
   },
 
