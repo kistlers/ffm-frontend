@@ -26,8 +26,9 @@ export const PlayerList = (props: any) => {
     <List {...props}>
       {isSmall ? (
         <SimpleList
-          primaryText={({firstName}: { firstName: string }) => firstName}
-          secondaryText={({lastName}: { lastName: number }) => `${lastName}`}
+          primaryText={(player: Player) => player.firstName}
+          secondaryText={(player: Player) => player.lastName}
+          tertiaryText={(player: Player) => playerPosition2Text[player.position]}
         />
       ) : (
         <Datagrid rowClick="edit">
@@ -128,8 +129,12 @@ enum PlayerPosition {
   FIELD = "FIELD", GOAL = "GOAL", STAFF = "STAFF"
 }
 
-const playerPositions = [
-  {id: PlayerPosition.GOAL, name: "Torhüter"},
-  {id: PlayerPosition.FIELD, name: "Feldspieler"},
-  {id: PlayerPosition.STAFF, name: "Staff"}
-];
+const playerPosition2Text = {
+  [PlayerPosition.GOAL as string]: "Torhüter",
+  [PlayerPosition.FIELD as string]: "Feldspieler",
+  [PlayerPosition.STAFF as string]: "Staff"
+};
+
+const playerPositions: { id: string, name: string }[] = Object.keys(PlayerPosition).map(key => ({
+  id: key, name: playerPosition2Text[key]
+}));
