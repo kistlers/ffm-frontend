@@ -11,4 +11,5 @@ const App = () => (
     <Resource name="players" list={PlayerList} edit={PlayerEdit} create={PlayerCreate} icon={PeopleIcon}/>
   </Admin>
 );
+
 export default App;

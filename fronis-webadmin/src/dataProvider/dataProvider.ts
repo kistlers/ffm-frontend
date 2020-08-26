@@ -117,44 +117,24 @@ const convertFileToBase64 = (file: { rawFile: any }) =>
 const uploadCapableDataProvider = {
   ...dataProvider,
   update: (resource: any, params: any) => {
-    console.log(params);
     if (resource !== "players" || !params.data.image) {
       // fallback to the default implementation
       return dataProvider.update(resource, params);
     }
+
     /**
-     * For posts update only, convert uploaded image in base 64 and attach it to
-     * the `picture` sent property, with `src` and `title` attributes.
+     * For players update only, convert uploaded image in base64 and attach it to
+     * the `image` property, with `data` attribute.
      */
-
-    // Freshly dropped images are File objects and must be converted to base64 strings
-    // const newImages = params.data.images.filter((p: { rawFile: any }) => p.rawFile instanceof File);
-    // const formerImages = params.data.images.filter((p: { rawFile: any }) => !(p.rawFile instanceof File));
-
-    // new Promise(() => convertFileToBase64(params.data.image))
-    //   .then(base64Encoded => {
-    //     console.log(base64Encoded);
-    //     return ({
-    //       src: base64Encoded
-    //     });
-    //   });
-
-    return convertFileToBase64(params.data.image)
-      .then(base64Image => {
-          console.log(base64Image);
-          return dataProvider.update(resource, {
-            ...params,
-            data: {
-              ...params.data,
-              image: {src: base64Image}
-            },
-          });
+    return convertFileToBase64(params.data.image).then(base64Image =>
+      dataProvider.update(resource, {
+        ...params,
+        data: {
+          ...params.data,
+          image: {data: base64Image}
         }
-      ).then(val => {
-        console.log(val);
-        return val;
-      });
-  },
+      }));
+  }
 };
 
 export default uploadCapableDataProvider;
