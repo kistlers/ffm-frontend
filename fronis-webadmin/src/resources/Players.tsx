@@ -57,8 +57,6 @@ export const PlayerEdit = (props: any) => (
             <TextInput source="firstName" label="Vorname" validate={required()}/>
             <TextInput source="lastName" label="Nachname" validate={required()}/>
             <TextInput source="shortName" label="Spitzname"/>
-          </InputWrapper>
-          <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
             <NumberInput source="playerNumber" label="Rückennummer"/>
             <SelectInput
               source="position"
@@ -70,10 +68,12 @@ export const PlayerEdit = (props: any) => (
             />
             <NumberInput source="yearOfBirth" label="Jahrgang"/>
           </InputWrapper>
+          <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
+            <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
+              <ImageField source="data"/>
+            </ImageInput>
+          </InputWrapper>
         </InputWrapper>
-        <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
-          <ImageField source="data"/>
-        </ImageInput>
       </SimpleForm>
     </Edit>
   )
@@ -82,24 +82,28 @@ export const PlayerEdit = (props: any) => (
 export const PlayerCreate = (props: any) => (
   <Create title="Neuer Spieler" {...props}>
     <SimpleForm>
-      <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6}} addDiv>
-        <TextInput source="firstName" label="Vorname" validate={required()}/>
-        <TextInput source="lastName" label="Nachname" validate={required()}/>
+      <InputWrapper wrapperType={Grid} wrapperOptions={{container: true, spacing: 3}}>
+        <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
+          <TextInput source="firstName" label="Vorname" validate={required()}/>
+          <TextInput source="lastName" label="Nachname" validate={required()}/>
+          <TextInput source="shortName" label="Spitzname"/>
+          <NumberInput source="playerNumber" label="Rückennummer"/>
+          <SelectInput
+            source="position"
+            label="Position"
+            choices={playerPositions}
+            optionText="name"
+            optionValue="id"
+            validate={required()}
+          />
+          <NumberInput source="yearOfBirth" label="Jahrgang"/>
+        </InputWrapper>
+        <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
+          <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
+            <ImageField source="data"/>
+          </ImageInput>
+        </InputWrapper>
       </InputWrapper>
-      <TextInput source="shortName" label="Spitzname"/>
-      <NumberInput source="playerNumber" label="Rückennummer"/>
-      <SelectInput
-        source="position"
-        label="Position"
-        choices={playerPositions}
-        optionText="name"
-        optionValue="id"
-        validate={required()}
-      />
-      <NumberInput source="yearOfBirth" label="Jahrgang"/>
-      <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
-        <ImageField source="data"/>
-      </ImageInput>
     </SimpleForm>
   </Create>
 );
