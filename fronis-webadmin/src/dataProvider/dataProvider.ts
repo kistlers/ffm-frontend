@@ -5,7 +5,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 // const TOKEN_URL = process.env.REACT_APP_AUTH_URL + "/token";
 const httpClient = fetchUtils.fetchJson;
 
-export default {
+const dataProvider = {
   getList: (resource: string, params: any) => {
     const {page, perPage} = params.pagination;
     const {field, order} = params.sort;
@@ -15,8 +15,6 @@ export default {
       perPage: perPage,
       field: field,
       order: order,
-      query: params.filter.q,
-      // filter: JSON.stringify({...params.filter})
     };
 
     const url = `${API_URL}/${resource}?${stringify(query)}`;
@@ -46,13 +44,14 @@ export default {
     const {page, perPage} = params.pagination;
     const {field, order} = params.sort;
     const query = {
-      sort: JSON.stringify([field, order]),
-      range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-      filter: JSON.stringify({
-        ...params.filter,
-        [params.target]: params.id,
-      }),
+      ...params.filter,
+      page: page - 1,
+      perPage: perPage,
+      field: field,
+      order: order,
+      [params.target]: params.id
     };
+
     const url = `${API_URL}/${resource}?${stringify(query)}`;
 
     return httpClient(url).then(({headers, json}: any) => ({
@@ -100,3 +99,62 @@ export default {
     }).then(({json}: any) => ({data: json}));
   }
 };
+
+/**
+ * Convert a `File` object returned by the upload input into a base 64 string.
+ * That's not the most optimized way to store images in production, but it's
+ * enough to illustrate the idea of data provider decoration.
+ */
+const convertFileToBase64 = (file: { rawFile: any }) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+
+    reader.readAsDataURL(file.rawFile);
+  });
+
+const uploadCapableDataProvider = {
+  ...dataProvider,
+  update: (resource: any, params: any) => {
+    console.log(params);
+    if (resource !== "players" || !params.data.image) {
+      // fallback to the default implementation
+      return dataProvider.update(resource, params);
+    }
+    /**
+     * For posts update only, convert uploaded image in base 64 and attach it to
+     * the `picture` sent property, with `src` and `title` attributes.
+     */
+
+    // Freshly dropped images are File objects and must be converted to base64 strings
+    // const newImages = params.data.images.filter((p: { rawFile: any }) => p.rawFile instanceof File);
+    // const formerImages = params.data.images.filter((p: { rawFile: any }) => !(p.rawFile instanceof File));
+
+    // new Promise(() => convertFileToBase64(params.data.image))
+    //   .then(base64Encoded => {
+    //     console.log(base64Encoded);
+    //     return ({
+    //       src: base64Encoded
+    //     });
+    //   });
+
+    return convertFileToBase64(params.data.image)
+      .then(base64Image => {
+          console.log(base64Image);
+          return dataProvider.update(resource, {
+            ...params,
+            data: {
+              ...params.data,
+              image: {src: base64Image}
+            },
+          });
+        }
+      ).then(val => {
+        console.log(val);
+        return val;
+      });
+  },
+};
+
+export default uploadCapableDataProvider;
