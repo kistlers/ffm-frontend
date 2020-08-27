@@ -117,7 +117,7 @@ const convertFileToBase64 = (file: { rawFile: any }) =>
 const uploadCapableDataProvider = {
   ...dataProvider,
   update: (resource: any, params: any) => {
-    if (resource !== "players" || !params.data.image) {
+    if (resource !== "players" || !params.data.image || !params.data.image.rawFile) {
       // fallback to the default implementation
       return dataProvider.update(resource, params);
     }
