@@ -40,7 +40,7 @@
   "scripts": {
     "start-local": "PORT=3006 REACT_APP_API_URL=http://localhost:8182/v1 REACT_APP_AUTH_URL=http://localhost:8183/oauth react-scripts start",
     "start-dev": "PORT=3007 REACT_APP_API_URL=https://r22.internet-box.ch/admin/api/v1 REACT_APP_AUTH_URL=https://r22.internet-box.ch/oauth react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_URL=https://r22.internet-box.ch/admin/api/v1 REACT_APP_AUTH_URL=https://r22.internet-box.ch/oauth react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
