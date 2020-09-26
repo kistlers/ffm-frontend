@@ -10,7 +10,6 @@
             <tr class="table-heads table-heads-no-hover">
               <th class="head-item mbr-fonts-style display-7">VORNAME</th>
               <th class="head-item mbr-fonts-style display-7">NACHNAME</th>
-              <th class="head-item mbr-fonts-style display-7">SPITZNAME</th>
               <th class="head-item mbr-fonts-style display-7">#</th>
               <th class="head-item mbr-fonts-style display-7">JAHRGANG</th>
             </tr>
@@ -20,7 +19,6 @@
             <tr *ngFor="let player of players" class="table-rows-hover">
               <td class="body-item mbr-fonts-style display-7">{{player.firstName}}</td>
               <td class="body-item mbr-fonts-style display-7">{{player.lastName}}</td>
-              <td class="body-item mbr-fonts-style display-7">{{player.shortName}}</td>
               <td class="body-item mbr-fonts-style display-7">{{player.playerNumber}}</td>
               <td class="body-item mbr-fonts-style display-7">{{player.yearOfBirth}}</td>
             </tr>

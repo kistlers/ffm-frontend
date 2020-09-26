@@ -29,7 +29,6 @@ export enum PlayerPosition {
 export type Player = {
   firstName: string,
   lastName: string,
-  shortName: string,
   playerNumber: string,
   position: PlayerPosition,
   yearOfBirth: string
