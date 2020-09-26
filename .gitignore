@@ -126,4 +126,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-fronis-web*/target/fronis-web*.tar.gz
+fronis-web/target/fronis-web.tar.gz
+fronis-webadmin/target/fronis-webadmin.tar.gz
