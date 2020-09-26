@@ -1,9 +1,16 @@
 import { fetchUtils } from "react-admin";
 import { stringify } from "query-string";
 
-const API_URL = process.env.REACT_APP_API_URL;
-// const TOKEN_URL = process.env.REACT_APP_AUTH_URL + "/token";
-const httpClient = fetchUtils.fetchJson;
+const API_URL = process.env.REACT_APP_API_URL + "/v1";
+
+// const httpClient = fetchUtils.fetchJson;
+const httpClient = (url: string, options: any = {}) => {
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  options.credentials = "include";
+  return fetchUtils.fetchJson(url, options);
+};
 
 const dataProvider = {
   getList: (resource: string, params: any) => {
