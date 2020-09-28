@@ -1,16 +1,26 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { Player } from "../service/team.service";
+import { MatDialog } from "@angular/material/dialog";
+import { PlayerDialogComponent } from "../player-dialog/player-dialog.component";
+import { Player } from "../types/Player";
 
 @Component({
-  selector: "app-team-table",
-  templateUrl: "./team-table.component.html",
-  styleUrls: ["./team-table.component.css"],
+    selector: "app-team-table",
+    templateUrl: "./team-table.component.html",
+    styleUrls: ["./team-table.component.css"],
 })
 export class TeamTableComponent implements OnInit {
-  @Input() position: string;
-  @Input() players: Player[];
+    @Input() position: string;
+    @Input() players: Player[];
 
-  constructor() { }
+    constructor(public matDialog: MatDialog) { }
 
-  ngOnInit(): void {}
+    ngOnInit(): void {}
+
+    onPlayerClick(player: Player): void {
+        this.matDialog.open(PlayerDialogComponent, {
+            data: {
+                player
+            }
+        });
+    }
 }

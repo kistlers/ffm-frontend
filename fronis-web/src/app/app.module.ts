@@ -13,29 +13,51 @@ import { KontaktComponent } from "./pages/kontakt/kontakt.component";
 import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TeamTableComponent } from "./pages/team/team-table/team-table.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { PlayerDialogComponent } from "./pages/team/player-dialog/player-dialog.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatButtonModule } from "@angular/material/button";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    TeamComponent,
-    PageNotFoundComponent,
-    SpieldatenComponent,
-    NewsComponent,
-    AboutusComponent,
-    KontaktComponent,
-    SponsorenComponent,
-    TeamTableComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        TeamComponent,
+        PageNotFoundComponent,
+        SpieldatenComponent,
+        NewsComponent,
+        AboutusComponent,
+        KontaktComponent,
+        SponsorenComponent,
+        TeamTableComponent,
+        PlayerDialogComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        FormsModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatButtonModule
+    ],
+    entryComponents: [PlayerDialogComponent],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
+
+export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
+    return new TranslateHttpLoader(http);
+}

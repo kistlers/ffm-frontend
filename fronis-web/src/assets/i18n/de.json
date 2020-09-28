@@ -1,0 +1,9 @@
+{
+    "player": {
+        "position": {
+            "GOAL": "Torhüter",
+            "FIELD": "Feldspieler",
+            "STAFF": "Staff"
+        }
+    }
+}

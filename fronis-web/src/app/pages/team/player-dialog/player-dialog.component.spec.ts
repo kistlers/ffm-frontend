@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AboutusComponent } from "./aboutus.component";
+import { PlayerDialogComponent } from "./player-dialog.component";
 
-describe("AboutusComponent", () => {
-    let component: AboutusComponent;
-    let fixture: ComponentFixture<AboutusComponent>;
+describe("PlayerModalComponent", () => {
+    let component: PlayerDialogComponent;
+    let fixture: ComponentFixture<PlayerDialogComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [AboutusComponent]
+            declarations: [PlayerDialogComponent]
         })
                 .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(AboutusComponent);
+        fixture = TestBed.createComponent(PlayerDialogComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

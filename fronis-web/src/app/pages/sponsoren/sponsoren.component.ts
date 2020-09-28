@@ -1,15 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-sponsoren",
-  templateUrl: "./sponsoren.component.html",
-  styleUrls: ["./sponsoren.component.css"]
+    selector: "app-sponsoren",
+    templateUrl: "./sponsoren.component.html",
+    styleUrls: ["./sponsoren.component.css"]
 })
 export class SponsorenComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }
