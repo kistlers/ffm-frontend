@@ -1,4 +1,12 @@
 {
+    "team":  {
+        "table": {
+            "FIRSTNAME": "VORNAME",
+            "LASTNAME": "NACHNAME",
+            "NUMBER": "#",
+            "YEAROFBIRTH": "JAHRGANG"
+        }
+    },
     "player": {
         "position": {
             "GOAL": "Torhüter",
