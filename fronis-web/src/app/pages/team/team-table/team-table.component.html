@@ -13,16 +13,14 @@
             <th class="head-item mbr-fonts-style display-7">{{"team.table.LASTNAME" | translate}}</th>
             <th class="head-item mbr-fonts-style display-7">{{"team.table.NUMBER" | translate}}</th>
             <th class="head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</th>
+            <th class="head-item mbr-fonts-style display-7" style="width: 1%"></th>
           </tr>
         </thead>
 
         <tbody>
-          <tr (click)="onPlayerClick(player)" *ngFor="let player of players" class="table-rows-hover">
-            <td class="body-item mbr-fonts-style display-7">{{player.firstName}}</td>
-            <td class="body-item mbr-fonts-style display-7">{{player.lastName}}</td>
-            <td class="body-item mbr-fonts-style display-7">{{player.playerNumber}}</td>
-            <td class="body-item mbr-fonts-style display-7">{{player.yearOfBirth}}</td>
-          </tr>
+          <ng-container *ngFor="let player of players">
+            <tr app-player-row [player]="player" class="table-rows-hover"></tr>
+          </ng-container>
         </tbody>
       </table>
     </div>

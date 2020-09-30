@@ -1,0 +1,17 @@
+<ng-container *ngIf="collapsed === false">
+  <td class="body-item mbr-fonts-style display-7">{{player.firstName}}</td>
+  <td class="body-item mbr-fonts-style display-7">{{player.lastName}}</td>
+  <td class="body-item mbr-fonts-style display-7">{{player.playerNumber}}</td>
+  <td class="body-item mbr-fonts-style display-7">{{player.yearOfBirth}}</td>
+</ng-container>
+<td *ngIf="collapsed === true" colspan="4">
+  {{player.firstName}} {{player.lastName}}
+  <br>
+  <ng-template [ngIf]="base64Image">
+    <img src="{{base64Image}}" alt="Girl in a jacket" width="500" height="600">
+  </ng-template>
+  <ng-template [ngIf]="!base64Image">
+    No Image
+  </ng-template>
+</td>
+<td class="body-item mbr-fonts-style display-7 align-right mbri-arrow-down mbri-arrow-down"></td>
