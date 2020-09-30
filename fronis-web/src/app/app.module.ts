@@ -14,7 +14,6 @@ import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TeamTableComponent } from "./pages/team/team-table/team-table.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { PlayerDialogComponent } from "./pages/team/player-dialog/player-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
@@ -33,7 +32,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
         KontaktComponent,
         SponsorenComponent,
         TeamTableComponent,
-        PlayerDialogComponent
+        PlayerRowComponent
     ],
     imports: [
         BrowserModule,
@@ -52,7 +51,6 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
         BrowserAnimationsModule,
         MatButtonModule
     ],
-    entryComponents: [PlayerDialogComponent],
     providers: [],
     bootstrap: [AppComponent]
 })
