@@ -3,11 +3,11 @@ import { MatDialog } from "@angular/material/dialog";
 import { Player } from "../types/Player";
 
 @Component({
-    selector: "app-team-table",
-    templateUrl: "./team-table.component.html",
-    styleUrls: ["./team-table.component.css"],
+    selector: "app-players-table",
+    templateUrl: "./players-table.component.html",
+    styleUrls: ["./players-table.component.css"],
 })
-export class TeamTableComponent implements OnInit {
+export class PlayersTableComponent implements OnInit {
     @Input() position: string;
     @Input() players: Player[];
 

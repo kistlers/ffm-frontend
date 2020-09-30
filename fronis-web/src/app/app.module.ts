@@ -12,7 +12,7 @@ import { AboutusComponent } from "./pages/aboutus/aboutus.component";
 import { KontaktComponent } from "./pages/kontakt/kontakt.component";
 import { SponsorenComponent } from "./pages/sponsoren/sponsoren.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TeamTableComponent } from "./pages/team/team-table/team-table.component";
+import { PlayersTableComponent } from "./pages/team/players-table/players-table.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { MatDialogModule } from "@angular/material/dialog";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -32,7 +32,7 @@ import { PlayerRowComponent } from "./pages/team/player-row/player-row.component
         AboutusComponent,
         KontaktComponent,
         SponsorenComponent,
-        TeamTableComponent,
+        PlayersTableComponent,
         PlayerRowComponent
     ],
     imports: [
