@@ -2,8 +2,7 @@ import { Component, HostListener, Input, OnInit } from "@angular/core";
 import { Player, PlayerImageContainer } from "../types/Player";
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: "[app-player-row]",
+  selector: "app-player-row",
   templateUrl: "./player-row.component.html",
   styleUrls: ["./player-row.component.css"]
 })

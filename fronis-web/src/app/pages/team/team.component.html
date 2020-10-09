@@ -1,89 +1,11 @@
 <section class="engine"><a href="https://mobirise.info/e">make your own site</a></section>
 <section class="section-table cid-s5JF6ioO7g mbr-fullscreen flex-column-center" id="table1-e">
 
-<!--  <app-players-table *ngIf="playersGoal" [position]="playersGoal.position"-->
-<!--                     [players]="playersGoal.players"-->
-<!--                     class="container"></app-players-table>-->
-  <!--  <app-players-table *ngIf="playersField" [position]="playersField.position"-->
-  <!--                     [players]="playersField.players"-->
-  <!--                     class="container table-margin-top"></app-players-table>-->
-  <!--  <app-players-table *ngIf="playersStaff" [position]="playersStaff.position"-->
-  <!--                     [players]="playersStaff.players"-->
-  <!--                     class="container table-margin-top"></app-players-table>-->
-
-  <div class="player-table-parent container">
-    <div class="h2 player-table-title mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-      {{"player.position." + playersGoal.position | translate}}
-    </div>
-    <div
-      class="player-table-head player-table-col1 head-item mbr-fonts-style display-7">{{"team.table.FIRSTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col2 head-item mbr-fonts-style display-7">{{"team.table.LASTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col3 head-item mbr-fonts-style display-7">{{"team.table.NUMBER" | translate}}</div>
-    <div
-      class="player-table-head player-table-col4 head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</div>
-    <div class="player-table-head player-table-col5 head-item mbr-fonts-style display-7"></div>
-
-    <ng-container *ngFor="let player of playersGoal.players">
-      <div class="player-table-row">
-        <div class="player-table-element player-table-col1">{{player.firstName}}</div>
-        <div class="player-table-element player-table-col2">{{player.lastName}}</div>
-        <div class="player-table-element player-table-col3">{{player.playerNumber}}</div>
-        <div class="player-table-element player-table-col4">{{player.yearOfBirth}}</div>
-
-        <div class="player-table-element player-table-col5"><img
-          src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron"></div>      </div>
-    </ng-container>
-
-    <div class="h2 player-table-title mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-      {{"player.position." + playersField.position | translate}}
-    </div>
-    <div
-      class="player-table-head player-table-col1 head-item mbr-fonts-style display-7">{{"team.table.FIRSTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col2 head-item mbr-fonts-style display-7">{{"team.table.LASTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col3 head-item mbr-fonts-style display-7">{{"team.table.NUMBER" | translate}}</div>
-    <div
-      class="player-table-head player-table-col4 head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</div>
-    <div class="player-table-head player-table-col5 head-item mbr-fonts-style display-7"></div>
-
-    <ng-container *ngFor="let player of playersField.players">
-      <div class="player-table-row">
-        <div class="player-table-element player-table-col1">{{player.firstName}}</div>
-        <div class="player-table-element player-table-col2">{{player.lastName}}</div>
-        <div class="player-table-element player-table-col3">{{player.playerNumber}}</div>
-        <div class="player-table-element player-table-col4">{{player.yearOfBirth}}</div>
-
-        <div class="player-table-element player-table-col5"><img
-          src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron"></div>      </div>
-    </ng-container>
-
-
-    <div class="h2 player-table-title mbr-section-title mbr-fonts-style align-center pb-3 display-2">
-      {{"player.position." + playersStaff.position | translate}}
-    </div>
-    <div
-      class="player-table-head player-table-col1 head-item mbr-fonts-style display-7">{{"team.table.FIRSTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col2 head-item mbr-fonts-style display-7">{{"team.table.LASTNAME" | translate}}</div>
-    <div
-      class="player-table-head player-table-col3 head-item mbr-fonts-style display-7">{{"team.table.NUMBER" | translate}}</div>
-    <div
-      class="player-table-head player-table-col4 head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</div>
-    <div class="player-table-head player-table-col5 head-item mbr-fonts-style display-7"></div>
-
-    <ng-container *ngFor="let player of playersStaff.players">
-      <div class="player-table-row">
-        <div class="player-table-element player-table-col1">{{player.firstName}}</div>
-        <div class="player-table-element player-table-col2">{{player.lastName}}</div>
-        <div class="player-table-element player-table-col3">{{player.playerNumber}}</div>
-        <div class="player-table-element player-table-col4">{{player.yearOfBirth}}</div>
-        <div class="player-table-element player-table-col5"><img
-          src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron"></div>
-      </div>
-    </ng-container>
-  </div>
+  <app-players-table *ngIf="playersGoal" [position]="playersGoal.position"
+                     [players]="playersGoal.players" class="player-table-parent container"></app-players-table>
+  <app-players-table *ngIf="playersField" [position]="playersField.position"
+                     [players]="playersField.players" class="player-table-parent container"></app-players-table>
+  <app-players-table *ngIf="playersStaff" [position]="playersStaff.position"
+                     [players]="playersStaff.players" class="player-table-parent container"></app-players-table>
 
 </section>
