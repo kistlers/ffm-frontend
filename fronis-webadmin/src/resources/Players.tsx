@@ -118,7 +118,11 @@ type Player = {
   position: PlayerPosition,
   yearOfBirth: string,
   imageMime: string,
-  image: string
+  image: PlayerImageContainer
+};
+
+type PlayerImageContainer = {
+  data: string
 };
 
 enum PlayerPosition {

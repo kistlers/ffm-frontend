@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
 import { Player } from "../types/Player";
 
 @Component({
@@ -11,7 +10,7 @@ export class PlayersTableComponent implements OnInit {
     @Input() position: string;
     @Input() players: Player[];
 
-    constructor(public matDialog: MatDialog) { }
+    constructor() { }
 
     ngOnInit(): void {}
 }

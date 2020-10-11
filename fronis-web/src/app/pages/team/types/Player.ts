@@ -4,7 +4,7 @@ export type Player = {
     playerNumber: string,
     position: PlayerPosition,
     yearOfBirth: string,
-    image: string
+    image: PlayerImageContainer
 };
 
 export type PlayerImageContainer = {

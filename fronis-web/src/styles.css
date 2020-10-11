@@ -34,7 +34,7 @@
     display: contents;
 }
 
-.player-table-row:hover > div {
+.player-table-row:hover > div:not(.player-table-detail) {
     transition-duration: 300ms;
     background: #cccccc !important;
     color: #000000 !important;
@@ -75,4 +75,19 @@
     grid-column: 5 / 6;
     text-align: right;
     width: 2.5rem;
+}
+
+.player-row-chevron {
+    transition-duration: 300ms;
+    transform: rotate(180deg);
+}
+
+.player-table-detail {
+    grid-column: 1 / 6;
+    overflow: hidden;
+}
+
+.player-image {
+    max-width: 50%;
+    width: 50%;
 }

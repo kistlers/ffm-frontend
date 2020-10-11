@@ -1,7 +1,14 @@
-<div class="player-table-element player-table-col1">{{player.firstName}}</div>
-<div class="player-table-element player-table-col2">{{player.lastName}}</div>
-<div class="player-table-element player-table-col3">{{player.playerNumber}}</div>
-<div class="player-table-element player-table-col4">{{player.yearOfBirth}}</div>
+<div class="player-table-element player-table-col1">{{expanded ? "" : player.firstName}}</div>
+<div class="player-table-element player-table-col2">{{expanded ? "" : player.lastName}}</div>
+<div class="player-table-element player-table-col3">{{expanded ? "" : player.playerNumber}}</div>
+<div class="player-table-element player-table-col4">{{expanded ? "" : player.yearOfBirth}}</div>
 
 <div class="player-table-element player-table-col5"><img
-  src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron"></div>
+  src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
+</div>
+
+<div class="player-table-detail" [@expandRow]="state">
+  I am expanded
+  <br>
+  <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" class="player-image">
+</div>

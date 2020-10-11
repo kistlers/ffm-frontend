@@ -1,26 +1,59 @@
 import { Component, HostListener, Input, OnInit } from "@angular/core";
-import { Player, PlayerImageContainer } from "../types/Player";
+import { Player } from "../types/Player";
+import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
+import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
-  selector: "app-player-row",
-  templateUrl: "./player-row.component.html",
-  styleUrls: ["./player-row.component.css"]
+    selector: "app-player-row",
+    templateUrl: "./player-row.component.html",
+    styleUrls: ["./player-row.component.css"],
+    animations: [
+        // Each unique animation requires its own trigger. The first argument of the trigger function is the name
+        trigger("rotate180", [
+            state("default", style({transform: "rotate(0)"})),
+            state("open", style({
+                transform: "rotate(180deg)"
+            })),
+            transition("open => default", animate("300ms ease-out")),
+            transition("default => open", animate("300ms ease-in"))
+        ]),
+        trigger("expandRow", [
+            state("default", style({height: 0})),
+            state("open", style({
+                height: "*",
+                background: "#ffffff",
+                padding: ".75rem",
+                "border-bottom": "1px solid #cccccc"
+            })),
+            transition("open => default", animate("300ms ease-out")),
+            transition("default => open", animate("300ms ease-in")),
+            // transition("default => open", animate("300ms"))
+        ])
+    ]
 })
 export class PlayerRowComponent implements OnInit {
 
-  @Input() player: Player;
-  base64Image: string;
+    @Input() player: Player;
 
-  collapsed = false;
+    expanded = false;
+    state: "default" | "open" = "default";
 
-  constructor() { }
+    constructor(private domSanitizer: DomSanitizer) { }
 
-  ngOnInit(): void {
-    const playerImageContainer: PlayerImageContainer = JSON.parse(this.player.image);
-    this.base64Image = playerImageContainer.data;
-  }
+    ngOnInit(): void {
+    }
 
-  @HostListener("click", ["$event"]) onRowClick(): void {
-    this.collapsed = !this.collapsed;
-  }
+    getBase64Image(): SafeUrl {
+        return this.domSanitizer.bypassSecurityTrustUrl(this.player.image.data);
+    }
+
+    @HostListener("click", ["$event"]) onRowClick(): void {
+    // onRowClick(): void {
+        this.state = (this.state === "default" ? "open" : "default");
+        // this.expanded = !this.expanded;
+    }
+
+    public hasImage(): boolean {
+        return this.player.image?.data?.replace(/data:image\/png;base64,/, "").length > 0;
+    }
 }
