@@ -68,7 +68,7 @@ export const PlayerEdit = (props: any) => (
                         <NumberInput source="yearOfBirth" label="Jahrgang"/>
                     </InputWrapper>
                     <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                        <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
+                        <ImageInput source="image" label="Bild" accept="image/png" multiple={false}>
                             <ImageField source="data"/>
                         </ImageInput>
                     </InputWrapper>
@@ -97,7 +97,7 @@ export const PlayerCreate = (props: any) => (
                     <NumberInput source="yearOfBirth" label="Jahrgang"/>
                 </InputWrapper>
                 <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                    <ImageInput source="image" label="Bild" accept="image/*" multiple={false}>
+                    <ImageInput source="image" label="Bild" accept="image/png" multiple={false}>
                         <ImageField source="data"/>
                     </ImageInput>
                 </InputWrapper>
