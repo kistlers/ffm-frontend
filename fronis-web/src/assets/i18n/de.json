@@ -1,10 +1,10 @@
 {
     "team":  {
         "table": {
+            "NUMBER": "#",
             "FIRSTNAME": "VORNAME",
             "LASTNAME": "NACHNAME",
-            "NUMBER": "#",
-            "YEAROFBIRTH": "JAHRGANG"
+            "YEAROFBIRTH": "JG"
         }
     },
     "player": {

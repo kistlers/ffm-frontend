@@ -22,7 +22,7 @@
 
 .player-table-parent {
     display: grid;
-    grid-template-columns: 2fr 2fr minmax(max-content, 10%) 2fr minmax(max-content, auto);
+    grid-template-columns: minmax(max-content, 10%) 1fr 1fr minmax(max-content, 10%) minmax(max-content, auto);
 }
 
 .player-table-title {

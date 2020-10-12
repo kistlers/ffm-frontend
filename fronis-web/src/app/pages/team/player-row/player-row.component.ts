@@ -8,7 +8,6 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
     templateUrl: "./player-row.component.html",
     styleUrls: ["./player-row.component.css"],
     animations: [
-        // Each unique animation requires its own trigger. The first argument of the trigger function is the name
         trigger("rotate180", [
             state("default", style({transform: "rotate(0)"})),
             state("open", style({
@@ -27,7 +26,6 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
             })),
             transition("open => default", animate("300ms ease-out")),
             transition("default => open", animate("300ms ease-in")),
-            // transition("default => open", animate("300ms"))
         ])
     ]
 })
