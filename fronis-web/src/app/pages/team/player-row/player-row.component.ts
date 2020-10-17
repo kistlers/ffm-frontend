@@ -46,9 +46,8 @@ export class PlayerRowComponent implements OnInit {
     }
 
     @HostListener("click", ["$event"]) onRowClick(): void {
-    // onRowClick(): void {
         this.state = (this.state === "default" ? "open" : "default");
-        // this.expanded = !this.expanded;
+        this.expanded = !this.expanded;
     }
 
     public hasImage(): boolean {

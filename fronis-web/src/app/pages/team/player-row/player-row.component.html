@@ -1,14 +1,56 @@
-<div class="player-table-element player-table-col1">{{expanded ? "" : player.playerNumber}}</div>
-<div class="player-table-element player-table-col2">{{expanded ? "" : player.firstName}}</div>
-<div class="player-table-element player-table-col3">{{expanded ? "" : player.lastName}}</div>
-<div class="player-table-element player-table-col4">{{expanded ? "" : player.yearOfBirth}}</div>
+<div class="player-table-element player-table-col1" [ngClass]="{'gray-background': expanded}">
+  {{expanded ? "" : player.playerNumber}}
+</div>
+<div class="player-table-element player-table-col2" [ngClass]="{'gray-background': expanded}">
+  {{expanded ? "" : player.firstName}}
+</div>
+<div class="player-table-element player-table-col3" [ngClass]="{'gray-background': expanded}">
+  {{expanded ? "" : player.lastName}}
+</div>
+<div class="player-table-element player-table-col4" [ngClass]="{'gray-background': expanded}">
+  {{expanded ? "" : player.yearOfBirth}}
+</div>
 
-<div class="player-table-element player-table-col5"><img
-  src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
+<div class="player-table-element player-table-col5" [ngClass]="{'gray-background': expanded}">
+  <img src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
 </div>
 
 <div class="player-table-detail" [@expandRow]="state">
-  I am expanded
-  <br>
-  <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" class="player-image">
+  <div class="player-detail-content">
+    <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" width="100%" class="player-detail-image">
+  </div>
+  <div class="player-detail-content">
+    <div class="player-detail-info">
+      <div class="player-detail-text">
+        {{player.playerNumber}}
+      </div>
+      <div class="player-detail-text-description">
+        {{ "player.number" | translate }}
+      </div>
+    </div>
+    <div class="player-detail-info">
+      <div class="player-detail-text">
+        {{player.firstName}}
+      </div>
+      <div class="player-detail-text-description">
+        {{ "player.lastname" | translate }}
+      </div>
+    </div>
+    <div class="player-detail-info">
+      <div class="player-detail-text">
+        {{player.lastName}}
+      </div>
+      <div class="player-detail-text-description">
+        {{ "player.lastname" | translate }}
+      </div>
+    </div>
+    <div class="player-detail-info">
+      <div class="player-detail-text">
+        {{player.yearOfBirth}}
+      </div>
+      <div class="player-detail-text-description">
+        {{ "player.yearofbirth" | translate }}
+      </div>
+    </div>
+  </div>
 </div>

@@ -36,7 +36,7 @@
 
 .player-table-row:hover > div:not(.player-table-detail) {
     transition-duration: 300ms;
-    background: #cccccc !important;
+    background: #aaaaaa !important;
     color: #000000 !important;
 }
 
@@ -46,7 +46,6 @@
     padding: .75rem;
     border-top: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
-    /*text-align: left;*/
 }
 
 .player-table-element {
@@ -85,9 +84,42 @@
 .player-table-detail {
     grid-column: 1 / 6;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.player-image {
-    max-width: 50%;
-    width: 50%;
+.player-detail-content {
+    flex: 1 1 180px;
+    margin: 0 auto;
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-detail-image {
+    max-width: 400px;
+    justify-self: center;
+}
+
+.player-detail-info {
+    margin: 1rem 0;
+}
+
+.player-detail-text {
+    padding: 0 .75rem;
+    font-size: large;
+    border-bottom: 1px solid #cccccc;
+}
+
+.player-detail-text-description {
+    padding: 0 .75rem;
+    font-size: smaller;
+    font-weight: lighter;
+    color: #cccccc;
+}
+
+.gray-background {
+    background-color: #cccccc;
 }

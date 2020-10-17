@@ -12,6 +12,10 @@
             "GOAL": "Torhüter",
             "FIELD": "Feldspieler",
             "STAFF": "Staff"
-        }
+        },
+        "number": "Rückenummer",
+        "firstname": "Vorname",
+        "lastname": "Nachname",
+        "yearofbirth": "Jahrgang"
     }
 }
