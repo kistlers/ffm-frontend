@@ -15,8 +15,4 @@ export class TeamService {
     getAllPlayers(): Observable<Player[]> {
         return this.http.get<Player[]>(this.baseUrl + "/v1/players");
     }
-
-    getPlayer(id: number): Observable<Player> {
-        return this.http.get<Player>(this.baseUrl + "/v1/players/" + id);
-    }
 }
