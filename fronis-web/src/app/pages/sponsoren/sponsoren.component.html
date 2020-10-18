@@ -1,54 +1,49 @@
 <section class="engine"><a href="https://mobirise.info/b">how to create a site</a></section>
-<section class="counters6 counters cid-s5JHB5gXWl mbr-fullscreen" id="counters6-l">
+<section class="counters6 counters cid-s5JHlKQuXY mbr-fullscreen" id="counters6-l">
 
 
   <div class="container pt-4 mt-2">
     <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">Sponsoren</h2>
-    <h3 class="mbr-section-subtitle pb-5 align-center mbr-fonts-style display-5">
-      Responsive block with counters and media.
-    </h3>
-    <div>
-      <div class="cards-container">
-        <div class="card col-12 col-md-6 col-lg-4 pb-md-4">
-          <div class="panel-item align-center">
-            <div class="card-img pb-3">
-              <h3 class="img-text mbr-fonts-style display-1">01.</h3>
-            </div>
-            <div class="card-text">
-              <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Honest and Dependable</h4>
-              <p class="mbr-content-text mbr-fonts-style display-7">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cupiditate rerum ipsum tempora
-                vero.</p>
-            </div>
-          </div>
-        </div>
-        <div class="card col-12 col-md-6 col-lg-4 pb-md-4">
-          <div class="panel-item align-center">
-            <div class="card-img pb-3">
-              <h3 class="img-text mbr-fonts-style display-1">02.</h3>
-            </div>
-            <div class="card-text">
-              <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">We Are Always Improving</h4>
-              <p class="mbr-content-text mbr-fonts-style display-7">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card col-12 col-md-6 col-lg-4 last-child">
-          <div class="panel-item align-center">
-            <div class="card-img pb-3">
-              <h3 class="img-text mbr-fonts-style display-1">03.</h3>
-            </div>
-            <div class="card-text">
-              <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">We Are Passionate</h4>
-              <p class="mbr-content-text mbr-fonts-style display-7">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cupiditate rerum ipsum tempora
-                vero.</p>
+
+    <div class="row justify-content-center">
+      <div class="cards-block">
+        <div class="cards-container">
+          <div *ngFor="let sponsor of sponsors" class="card px-3 align-left col-12">
+            <div class="panel-item p-4 d-flex">
+              <div class="card-text w-100">
+                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">{{sponsor.name}}</h4>
+                <a class="w-100" [href]="sponsor.url">
+                  <div class="align-center">
+                    <img *ngIf="hasImage(sponsor)" [src]="getBase64Image(sponsor)" width="100%" class="w-md-75">
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
+        <!--        <ng-container *ngFor="let sponsor of sponsors">-->
+        <!--          <a class="card col-12 pb-md-4" [href]="sponsor.url">-->
+        <!--            <div class="panel-item align-center sponsor-item bt-gray">-->
+        <!--              <img *ngIf="hasImage(sponsor)" [src]="getBase64Image(sponsor)" class="w-lg-75">-->
+        <!--            </div>-->
+        <!--          </a>-->
+        <!--        </ng-container>-->
+
+        <!--        <ng-container *ngFor="let sponsor of sponsors">-->
+        <!--          <div class="card col-12 col-lg-6 pb-md-4">-->
+        <!--            <div class="panel-item align-center">-->
+        <!--              <div class="card-img pb-3">-->
+        <!--                <h3 class="img-text mbr-fonts-style display-1">{{sponsor.name}}</h3>-->
+        <!--              </div>-->
+        <!--              <div class="card-text">-->
+        <!--                <h4 *ngIf="sponsor.url"-->
+        <!--                    class="mbr-content-title mbr-bold mbr-fonts-style display-7">{{sponsor.url}}</h4>-->
+        <!--                <img *ngIf="hasImage(sponsor)" [src]="getBase64Image(sponsor)">-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </ng-container>-->
       </div>
     </div>
   </div>

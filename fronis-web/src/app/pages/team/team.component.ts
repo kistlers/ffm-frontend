@@ -16,13 +16,13 @@ export class TeamComponent implements OnInit {
     constructor(private teamService: TeamService) {}
 
     ngOnInit(): void {
-        this.teamService.getAllPlayers().subscribe((players => {
+        this.teamService.getAllPlayers().subscribe(players => {
             const groupedPlayers = groupBy(players, "position");
 
             this.playersGoal = {position: "GOAL", players: groupedPlayers.GOAL};
             this.playersField = {position: "FIELD", players: groupedPlayers.FIELD};
             this.playersStaff = {position: "STAFF", players: groupedPlayers.STAFF};
-        }));
+        });
     }
 }
 

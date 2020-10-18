@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Sponsor } from "../team/types/Sponsor";
+import { SponsorService } from "../team/service/sponsor.service";
+import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 
 @Component({
     selector: "app-sponsoren",
@@ -7,8 +10,21 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SponsorenComponent implements OnInit {
 
-    constructor() { }
+    sponsors: Sponsor[];
+
+    constructor(private sponsorService: SponsorService, private domSanitizer: DomSanitizer) {}
 
     ngOnInit(): void {
+        this.sponsorService.getAllSponsors().subscribe(sponsors => {
+            this.sponsors = sponsors;
+        });
+    }
+
+    getBase64Image(sponsor: Sponsor): SafeUrl {
+        return this.domSanitizer.bypassSecurityTrustUrl(sponsor.image.data);
+    }
+
+    public hasImage(sponsor: Sponsor): boolean {
+        return sponsor.image?.data?.replace(/data:image\/png;base64,/, "").length > 0;
     }
 }
