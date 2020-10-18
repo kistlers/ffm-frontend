@@ -20,7 +20,7 @@
     <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" width="100%" class="player-detail-image">
   </div>
   <div class="player-detail-content">
-    <div class="player-detail-info">
+    <div *ngIf="player.playerNumber" class="player-detail-info">
       <div class="player-detail-text">
         {{player.playerNumber}}
       </div>
@@ -44,7 +44,7 @@
         {{ "player.lastname" | translate }}
       </div>
     </div>
-    <div class="player-detail-info">
+    <div *ngIf="player.yearOfBirth" class="player-detail-info">
       <div class="player-detail-text">
         {{player.yearOfBirth}}
       </div>
