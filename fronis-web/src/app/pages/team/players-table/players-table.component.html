@@ -7,9 +7,12 @@
   class="player-table-head player-table-col2 head-item mbr-fonts-style display-7">{{"team.table.FIRSTNAME" | translate}}</div>
 <div
   class="player-table-head player-table-col3 head-item mbr-fonts-style display-7">{{"team.table.LASTNAME" | translate}}</div>
-<div
-  class="player-table-head player-table-col4 head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</div>
-<div class="player-table-head player-table-col5 head-item mbr-fonts-style display-7"></div>
+<div fxShow fxShow.xs="false"
+     class="player-table-head player-table-col4 head-item mbr-fonts-style display-7">{{"team.table.YEAROFBIRTH" | translate}}</div>
+<div fxShow fxShow.xs="false"
+     class="player-table-head player-table-col5 player-table-last-col head-item mbr-fonts-style display-7"></div>
+<div fxHide fxHide.xs="false"
+     class="player-table-head player-table-col4 player-table-last-col head-item mbr-fonts-style display-7"></div>
 
 <ng-container *ngFor="let player of players">
   <app-player-row [player]="player" class="player-table-row"></app-player-row>

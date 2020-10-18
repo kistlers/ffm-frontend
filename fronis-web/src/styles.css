@@ -76,6 +76,11 @@
     width: 2.5rem;
 }
 
+.player-table-last-col {
+    text-align: right;
+    width: 2.5rem;
+}
+
 .player-row-chevron {
     transition-duration: 300ms;
     transform: rotate(180deg);

@@ -7,11 +7,14 @@
 <div class="player-table-element player-table-col3" [ngClass]="{'gray-background': expanded}">
   {{expanded ? "" : player.lastName}}
 </div>
-<div class="player-table-element player-table-col4" [ngClass]="{'gray-background': expanded}">
+<div fxShow fxShow.xs="false" class="player-table-element player-table-col4" [ngClass]="{'gray-background': expanded}">
   {{expanded ? "" : player.yearOfBirth}}
 </div>
 
-<div class="player-table-element player-table-col5" [ngClass]="{'gray-background': expanded}">
+<div fxShow fxShow.xs="false" class="player-table-element player-table-col5 player-table-last-col" [ngClass]="{'gray-background': expanded}">
+  <img src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
+</div>
+<div fxHide fxHide.xs="false" class="player-table-element player-table-col4 player-table-last-col" [ngClass]="{'gray-background': expanded}">
   <img src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
 </div>
 
