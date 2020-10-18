@@ -20,6 +20,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { PlayerRowComponent } from "./pages/team/player-row/player-row.component";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import { PlayerRowComponent } from "./pages/team/player-row/player-row.component
         ReactiveFormsModule,
         MatDialogModule,
         BrowserAnimationsModule,
-        MatButtonModule
+        MatButtonModule,
+        FlexLayoutModule
     ],
     providers: [],
     bootstrap: [AppComponent]
