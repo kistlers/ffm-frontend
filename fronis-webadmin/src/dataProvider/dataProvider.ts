@@ -36,8 +36,8 @@ const dataProvider = {
 
     getOne: (resource: string, params: any) =>
         httpClient(`${API_URL}/${resource}/${params.id}`).then(({json}: any) => ({
-            data: json
-        }
+                data: json
+            }
         )),
 
     getMany: (resource: string, params: any) => {
@@ -64,9 +64,9 @@ const dataProvider = {
         const url = `${API_URL}/${resource}?${stringify(query)}`;
 
         return httpClient(url).then(({headers, json}: any) => ({
-            data: json,
-            total: parseInt(headers.get("Content-Range").split("/").pop(), 10)
-        }
+                data: json,
+                total: parseInt(headers.get("Content-Range").split("/").pop(), 10)
+            }
         ));
     },
 
@@ -93,8 +93,8 @@ const dataProvider = {
             method: "POST",
             body: JSON.stringify(params.data)
         }).then(({json}: any) => ({
-            data: {...params.data, id: json.id}
-        }
+                data: {...params.data, id: json.id}
+            }
         )),
 
     delete: (resource: string, params: any) =>
@@ -132,7 +132,7 @@ const convertFileToBase64 = (file: { rawFile: any }) =>
 const uploadCapableDataProvider = {
     ...dataProvider,
     update: (resource: any, params: any) => {
-        if (resource !== "players" || !params.data.image || !params.data.image.rawFile) {
+        if (!params.data.image || !params.data.image.rawFile) {
             // fallback to the default implementation
             return dataProvider.update(resource, params);
         }
