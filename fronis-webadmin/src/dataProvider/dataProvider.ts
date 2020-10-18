@@ -129,6 +129,21 @@ const convertFileToBase64 = (file: { rawFile: any }) =>
         reader.readAsDataURL(file.rawFile);
     });
 
+/**
+ * For players update only, convert uploaded image in base64 and attach it to
+ * the `image` property, with `data` attribute.
+ */
+const base64ConvertAndReturn = (dataProviderFunction: (resource: any, params: any) => any, resource: any, params: any) =>
+    convertFileToBase64(params.data.image).then(base64Image =>
+        dataProviderFunction(resource, {
+            ...params,
+            data: {
+                ...params.data,
+                image: {data: base64Image}
+            }
+        })
+    );
+
 const uploadCapableDataProvider = {
     ...dataProvider,
     update: (resource: any, params: any) => {
@@ -136,19 +151,14 @@ const uploadCapableDataProvider = {
             // fallback to the default implementation
             return dataProvider.update(resource, params);
         }
-
-        /**
-         * For players update only, convert uploaded image in base64 and attach it to
-         * the `image` property, with `data` attribute.
-         */
-        return convertFileToBase64(params.data.image).then(base64Image =>
-            dataProvider.update(resource, {
-                ...params,
-                data: {
-                    ...params.data,
-                    image: {data: base64Image}
-                }
-            }));
+        return base64ConvertAndReturn(dataProvider.update, resource, params);
+    },
+    create: (resource: any, params: any) => {
+        if (!params.data.image || !params.data.image.rawFile) {
+            // fallback to the default implementation
+            return dataProvider.create(resource, params);
+        }
+        return base64ConvertAndReturn(dataProvider.create, resource, params);
     }
 };
 
