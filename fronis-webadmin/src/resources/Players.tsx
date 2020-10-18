@@ -12,97 +12,67 @@ import {
     SelectField,
     SelectInput,
     SimpleForm,
-    SimpleList,
     TextField,
     TextInput
 } from "react-admin";
 import InputWrapper from "../customComponents/InputWrapper";
-// import { useMediaQuery } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 
 export const PlayerList = (props: any) => {
-    const isSmall = false; //useMediaQuery((theme: any) => theme.breakpoints.down("xs"));
     return (
         <List {...props}>
-            {isSmall ? (
-                <SimpleList
-                    primaryText={(player: Player) => player.firstName}
-                    secondaryText={(player: Player) => player.lastName}
-                    tertiaryText={(player: Player) => playerPosition2Text[player.position]}
+            <Datagrid rowClick="edit">
+                <TextField source="firstName" label="Vorname"/>
+                <TextField source="lastName" label="Nachname"/>
+                <NumberField source="playerNumber" label="#"/>
+                <SelectField
+                    source="position"
+                    label="Position"
+                    choices={playerPositions}
+                    optionText="name"
+                    optionValue="id"
                 />
-            ) : (
-                 <Datagrid rowClick="edit">
-                     <TextField source="firstName" label="Vorname"/>
-                     <TextField source="lastName" label="Nachname"/>
-                     <NumberField source="playerNumber" label="#"/>
-                     <SelectField
-                         source="position"
-                         label="Position"
-                         choices={playerPositions}
-                         optionText="name"
-                         optionValue="id"
-                     />
-                     <NumberField source="yearOfBirth" label="Jahrgang"/>
-                 </Datagrid>
-             )}
+                <NumberField source="yearOfBirth" label="Jahrgang"/>
+            </Datagrid>
         </List>
     );
 };
 
+const PlayerForm = (props: any) => (
+    <SimpleForm {...props} redirect="list">
+        <InputWrapper wrapperType={Grid} wrapperOptions={{container: true, spacing: 3}}>
+            <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
+                <TextInput source="firstName" label="Vorname" validate={required()}/>
+                <TextInput source="lastName" label="Nachname" validate={required()}/>
+                <NumberInput source="playerNumber" label="Rückennummer"/>
+                <SelectInput
+                    source="position"
+                    label="Position"
+                    choices={playerPositions}
+                    optionText="name"
+                    optionValue="id"
+                    validate={required()}
+                />
+                <NumberInput source="yearOfBirth" label="Jahrgang"/>
+            </InputWrapper>
+            <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
+                <ImageInput source="image" label="Bild (PNG)" accept="image/png" multiple={false}>
+                    <ImageField source="data"/>
+                </ImageInput>
+            </InputWrapper>
+        </InputWrapper>
+    </SimpleForm>
+);
+
 export const PlayerEdit = (props: any) => (
-        <Edit title={<PlayerTitle/>} {...props}>
-            <SimpleForm>
-                <InputWrapper wrapperType={Grid} wrapperOptions={{container: true, spacing: 3}}>
-                    <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                        <TextInput source="firstName" label="Vorname" validate={required()}/>
-                        <TextInput source="lastName" label="Nachname" validate={required()}/>
-                        <NumberInput source="playerNumber" label="Rückennummer"/>
-                        <SelectInput
-                            source="position"
-                            label="Position"
-                            choices={playerPositions}
-                            optionText="name"
-                            optionValue="id"
-                            validate={required()}
-                        />
-                        <NumberInput source="yearOfBirth" label="Jahrgang"/>
-                    </InputWrapper>
-                    <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                        <ImageInput source="image" label="Bild" accept="image/png" multiple={false}>
-                            <ImageField source="data"/>
-                        </ImageInput>
-                    </InputWrapper>
-                </InputWrapper>
-            </SimpleForm>
-        </Edit>
-    )
-;
+    <Edit {...props} title={<PlayerTitle/>}>
+        <PlayerForm/>
+    </Edit>
+);
 
 export const PlayerCreate = (props: any) => (
-    <Create title="Neuer Spieler" {...props}>
-        <SimpleForm>
-            <InputWrapper wrapperType={Grid} wrapperOptions={{container: true, spacing: 3}}>
-                <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                    <TextInput source="firstName" label="Vorname" validate={required()}/>
-                    <TextInput source="lastName" label="Nachname" validate={required()}/>
-                    <NumberInput source="playerNumber" label="Rückennummer"/>
-                    <SelectInput
-                        source="position"
-                        label="Position"
-                        choices={playerPositions}
-                        optionText="name"
-                        optionValue="id"
-                        validate={required()}
-                    />
-                    <NumberInput source="yearOfBirth" label="Jahrgang"/>
-                </InputWrapper>
-                <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                    <ImageInput source="image" label="Bild" accept="image/png" multiple={false}>
-                        <ImageField source="data"/>
-                    </ImageInput>
-                </InputWrapper>
-            </InputWrapper>
-        </SimpleForm>
+    <Create {...props} title="Neuer Spieler">
+        <PlayerForm/>
     </Create>
 );
 
