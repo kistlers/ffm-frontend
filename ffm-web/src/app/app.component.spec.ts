@@ -23,13 +23,13 @@ describe("AppComponent", () => {
     it(`should have as title 'fronis-web'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-        expect(app.title).toEqual("fronis-web");
+        expect(app.title).toEqual("ffm-web");
     });
 
     it("should render title", () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.nativeElement;
-        expect(compiled.querySelector(".content span").textContent).toContain("fronis-web app is running!");
+        expect(compiled.querySelector(".content span").textContent).toContain("ffm-web app is running!");
     });
 });
