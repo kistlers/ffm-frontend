@@ -17,7 +17,7 @@ import {
 import InputWrapper from "../customComponents/InputWrapper";
 import Grid from "@material-ui/core/Grid";
 
-export const urlValidation = regex(/(https?:\/\/)(www\.)?[a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?/&=]*)/, "Bitte korrekte URL eingeben (https://example.com)");
+export const urlValidation = regex(/(https?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?/&=]*)/, "Bitte korrekte URL eingeben (https://example.com)");
 
 export const SponsorList = (props: any) => {
     return (
