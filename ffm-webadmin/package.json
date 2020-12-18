@@ -44,8 +44,9 @@
   },
   "scripts": {
     "start-local": "PORT=3006 REACT_APP_API_URL=http://localhost:8182 react-scripts start",
-    "start-dev": "PORT=3007 REACT_APP_API_URL=https://r15e.internet-box.ch/admin/api react-scripts start",
-    "build": "REACT_APP_API_URL=https://r15e.internet-box.ch/admin/api react-scripts build",
+    "start-staging": "PORT=3007 REACT_APP_API_URL=https://r15e.internet-box.ch/admin/api react-scripts start",
+    "build-staging": "REACT_APP_API_URL=https://r15e.internet-box.ch/admin/api react-scripts build",
+    "build-prod": "REACT_APP_API_URL=https://froni-fighters.ch/admin/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
