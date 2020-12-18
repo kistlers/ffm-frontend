@@ -1,4 +1,4 @@
-import {fetchUtils} from "react-admin";
+import {DataProvider, fetchUtils} from "react-admin";
 import {stringify} from "query-string";
 
 const API_URL = process.env.REACT_APP_API_URL + "/v1";
@@ -12,8 +12,8 @@ const httpClient = (url: string, options: any = {}) => {
     return fetchUtils.fetchJson(url, options);
 };
 
-const dataProvider = {
-    getList: (resource: string, params: any) => {
+const simpleDataProvider: DataProvider = {
+    getList: (resource, params) => {
         const {page, perPage} = params.pagination;
         const {field, order} = params.sort;
         const query = {
@@ -34,13 +34,13 @@ const dataProvider = {
         });
     },
 
-    getOne: (resource: string, params: any) =>
-        httpClient(`${API_URL}/${resource}/${params.id}`).then(({json}: any) => ({
-                data: json
-            }
-        )),
+    getOne: (resource, params) =>
+            httpClient(`${API_URL}/${resource}/${params.id}`).then(({json}: any) => ({
+                        data: json
+                    }
+            )),
 
-    getMany: (resource: string, params: any) => {
+    getMany: (resource, params) => {
         const query = {
             filter: JSON.stringify({id: params.ids})
         };
@@ -49,7 +49,7 @@ const dataProvider = {
         ));
     },
 
-    getManyReference: (resource: string, params: any) => {
+    getManyReference: (resource, params) => {
         const {page, perPage} = params.pagination;
         const {field, order} = params.sort;
         const query = {
@@ -64,20 +64,20 @@ const dataProvider = {
         const url = `${API_URL}/${resource}?${stringify(query)}`;
 
         return httpClient(url).then(({headers, json}: any) => ({
-                data: json,
-                total: parseInt(headers.get("Content-Range").split("/").pop(), 10)
-            }
+                    data: json,
+                    total: parseInt(headers.get("Content-Range").split("/").pop(), 10)
+                }
         ));
     },
 
-    update: (resource: string, params: any) =>
-        httpClient(`${API_URL}/${resource}/${params.id}`, {
-            method: "PUT",
-            body: JSON.stringify(params.data)
-        }).then(({json}: any) => ({data: json}
-        )),
+    update: (resource, params) =>
+            httpClient(`${API_URL}/${resource}/${params.id}`, {
+                method: "PUT",
+                body: JSON.stringify(params.data)
+            }).then(({json}: any) => ({data: json}
+            )),
 
-    updateMany: (resource: string, params: any) => {
+    updateMany: (resource, params) => {
         const query = {
             filter: JSON.stringify({id: params.ids})
         };
@@ -88,78 +88,81 @@ const dataProvider = {
         ));
     },
 
-    create: (resource: string, params: any) =>
-        httpClient(`${API_URL}/${resource}`, {
-            method: "POST",
-            body: JSON.stringify(params.data)
-        }).then(({json}: any) => ({
-                data: {...params.data, id: json.id}
-            }
-        )),
+    create: (resource, params) =>
+            httpClient(`${API_URL}/${resource}`, {
+                method: "POST",
+                body: JSON.stringify(params.data)
+            }).then(({json}: any) => ({
+                        data: {...params.data, id: json.id}
+                    }
+            )),
 
-    delete: (resource: string, params: any) =>
-        httpClient(`${API_URL}/${resource}/${params.id}`, {
+    delete: (resource, params) =>
+            httpClient(`${API_URL}/${resource}/${params.id}`, {
+                method: "DELETE"
+            }).then(({json}: any) => ({data: json}
+            )),
+
+    deleteMany: (resource, params) => {
+        const query = {
+            filter: JSON.stringify({id: params.ids})
+        };
+        return httpClient(`${API_URL}/${resource}?${stringify(query)}`, {
             method: "DELETE"
-        }).then(({json}: any) => ({data: json}
-        )),
-
-    deleteMany: (resource: string, params: any) => {
-        const query = {
-            filter: JSON.stringify({id: params.ids})
-        };
-        return httpClient(`${API_URL}/${resource}?${stringify(query)}`, {
-            method: "DELETE",
-            body: JSON.stringify(params.data)
         }).then(({json}: any) => ({data: json}
         ));
     }
 };
+
+
+type File = { rawFile: any };
 
 /**
  * Convert a `File` object returned by the upload input into a base 64 string.
  * That's not the most optimized way to store images in production, but it's
  * enough to illustrate the idea of data provider decoration.
  */
-const convertFileToBase64 = (file: { rawFile: any }) =>
-    new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
+const convertFileToBase64 = (file: File) =>
+        new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = reject;
 
-        reader.readAsDataURL(file.rawFile);
-    });
+            reader.readAsDataURL(file.rawFile);
+        });
 
 /**
- * For players update only, convert uploaded image in base64 and attach it to
+ * If given, convert uploaded image in base64 and attach it to
  * the `image` property, with `data` attribute.
  */
-const base64ConvertAndReturn = (dataProviderFunction: (resource: any, params: any) => any, resource: any, params: any) =>
-    convertFileToBase64(params.data.image).then(base64Image =>
-        dataProviderFunction(resource, {
-            ...params,
-            data: {
-                ...params.data,
-                image: {data: base64Image}
-            }
-        })
+function base64ConvertAndReturn<Params extends { data: { image: File } }>(dataProviderFunction: (resource: string, params: Params) => any, resource: string, params: Params) {
+    return convertFileToBase64(params.data.image).then(base64Image =>
+            dataProviderFunction(resource, {
+                ...params,
+                data: {
+                    ...params.data,
+                    image: {data: base64Image}
+                }
+            })
     );
+}
 
-const uploadCapableDataProvider = {
-    ...dataProvider,
-    update: (resource: any, params: any) => {
-        if (!params.data.image || !params.data.image.rawFile) {
+const dataProvider: DataProvider = {
+    ...simpleDataProvider,
+    update: (resource, params) => {
+        if (!params.data.image?.rawFile) {
             // fallback to the default implementation
-            return dataProvider.update(resource, params);
+            return simpleDataProvider.update(resource, params);
         }
-        return base64ConvertAndReturn(dataProvider.update, resource, params);
+        return base64ConvertAndReturn(simpleDataProvider.update, resource, params);
     },
-    create: (resource: any, params: any) => {
-        if (!params.data.image || !params.data.image.rawFile) {
+    create: (resource, params) => {
+        if (!params.data.image?.rawFile) {
             // fallback to the default implementation
-            return dataProvider.create(resource, params);
+            return simpleDataProvider.create(resource, params);
         }
-        return base64ConvertAndReturn(dataProvider.create, resource, params);
+        return base64ConvertAndReturn(simpleDataProvider.create, resource, params);
     }
 };
 
-export default uploadCapableDataProvider;
+export default dataProvider;
