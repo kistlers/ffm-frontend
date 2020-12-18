@@ -6,60 +6,15 @@
     <div class="row justify-content-center">
       <div class="title col-12 col-lg-8">
         <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Kontaktformular</h2>
-        <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-          Easily add subscribe and contact forms without any server-side integration.</h3>
+          <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
+            Diese Seite befindet sich im Aufbau.
+            <br>
+            In der Zwischenzeit wende dich bitte direkt an
+            <br>
+            <a href="mailto:info@froni-figters.ch">info@froni-fighters.ch</a>
+        </h3>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="media-container-column col-lg-8">
-        <form (ngSubmit)="onSubmit()" [formGroup]="formGroup"
-              class="mbr-form form-with-styler">
-          <div class="row">
-            <div data-formclass="alert alert-success col-12" hidden="hidden">Herzlichen Dank für deine
-              Kontaktaufnahme!
-            </div>
-            <div class="alert alert-danger col-12" hidden="hidden">
-            </div>
-          </div>
-          <div class="dragArea row">
-            <div class="col-md-6  form-group" data-for="name">
-              <label class="form-control-label mbr-fonts-style display-7" for="name-form1-m">Name</label>
-              <input class="form-control display-7" formControlName="name" id="name-form1-m" name="name"
-                     required="required" type="text">
-              <small
-                class="text-danger">{{isNameInvalid() && name.errors?.required ? "Name darf nicht leer sein" : "&nbsp;"}}</small>
-              <small
-                class="text-danger">{{isNameInvalid() && name.errors?.pattern ? "Bitte geben Sie einen gültigen Namen an" : "&nbsp;"}}</small>
-            </div>
-            <div class="col-md-6  form-group" data-for="email">
-              <label class="form-control-label mbr-fonts-style display-7" for="email-form1-m">Email</label>
-              <input [class.is-invalid]="email.invalid && email.touched" class="form-control display-7" formControlName="email" id="email-form1-m"
-                     name="email" required="required" type="email">
-              <small
-                class="text-danger">{{isEmailInvalid() && email.errors?.required ? "Email darf nicht leer sein" : "&nbsp;"}}</small>
-              <small
-                class="text-danger">{{isEmailInvalid() && email.errors?.pattern ? "Bitte geben Sie eine gültige E-Mail-Adresse an" : "&nbsp;"}}</small>
-            </div>
 
-            <div class="col-md-12 form-group" data-for="message">
-              <label class="form-control-label mbr-fonts-style display-7" for="message-form1-m">Nachricht</label>
-              <textarea class="form-control display-7" formControlName="message" id="message-form1-m"
-                        name="message" required="required"></textarea>
-              <small
-                class="text-danger">{{isMessageInvalid() && message.errors?.required ? "Nachricht darf nicht leer sein" : "&nbsp;"}}</small>
-              <small
-                class="text-danger">{{isMessageInvalid() && message.errors?.pattern ? "Bitte geben Sie eine gültige Nachricht ein" : "&nbsp;"}}</small>
-            </div>
-
-            <div class="col-md-12 input-group-btn align-center">
-              <button [disabled]="submitDisabled()" class="btn btn-primary btn-form display-4" type="submit">Absenden
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
 </section>
