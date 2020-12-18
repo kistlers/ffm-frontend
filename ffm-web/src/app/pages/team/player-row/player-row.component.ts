@@ -13,8 +13,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
             state("open", style({
                 transform: "rotate(180deg)"
             })),
-            transition("open => default", animate("300ms ease-out")),
-            transition("default => open", animate("300ms ease-in"))
+            transition("open => default", animate("250ms ease-out")),
+            transition("default => open", animate("250ms ease-in"))
         ]),
         trigger("expandRow", [
             state("default", style({height: 0})),
@@ -24,8 +24,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
                 padding: ".75rem",
                 "border-bottom": "1px solid #cccccc"
             })),
-            transition("open => default", animate("300ms ease-out")),
-            transition("default => open", animate("300ms ease-in")),
+            transition("open => default", animate("250ms ease-out")),
+            transition("default => open", animate("250ms ease-in")),
         ])
     ]
 })
