@@ -26,21 +26,14 @@
                         "styles": [
                             "src/styles.css",
                             "src/assets/web/assets/mobirise-icons/mobirise-icons.css",
-                            "src/assets/bootstrap/css/bootstrap.min.css",
-                            "src/assets/bootstrap/css/bootstrap-grid.min.css",
-                            "src/assets/bootstrap/css/bootstrap-reboot.min.css",
                             "src/assets/tether/tether.min.css",
                             "src/assets/dropdown/css/style.css",
                             "src/assets/animatecss/animate.min.css",
                             "src/assets/socicon/css/styles.css",
                             "src/assets/theme/css/style.css",
-                            "src/assets/mobirise/css/mbr-additional.css",
-                            "src/assets/datatables/data-tables.bootstrap4.min.css"
+                            "src/assets/mobirise/css/mbr-additional.css"
                         ],
                         "scripts": [
-                            "src/assets/web/assets/jquery/jquery.min.js",
-                            "src/assets/popper/popper.min.js",
-                            "src/assets/bootstrap/js/bootstrap.min.js",
                             "src/assets/tether/tether.min.js",
                             "src/assets/smoothscroll/smooth-scroll.js",
                             "src/assets/dropdown/js/nav-dropdown.js",

@@ -1,11 +1,11 @@
 <section class="engine"><a href="https://mobirise.info/e">make your own site</a></section>
 <section class="section-table cid-s5JF6ioO7g mbr-fullscreen flex-column-center" id="table1-e">
 
-  <app-players-table *ngIf="playersGoal" [position]="playersGoal.position"
-                     [players]="playersGoal.players" class="player-table-parent container"></app-players-table>
-  <app-players-table *ngIf="playersField" [position]="playersField.position"
-                     [players]="playersField.players" class="player-table-parent container"></app-players-table>
-  <app-players-table *ngIf="playersStaff" [position]="playersStaff.position"
-                     [players]="playersStaff.players" class="player-table-parent container"></app-players-table>
+    <app-players-table *ngIf="playersGoal" [players]="playersGoal.players"
+        [position]="playersGoal.position" class="player-table-parent container"></app-players-table>
+    <app-players-table *ngIf="playersField" [players]="playersField.players"
+        [position]="playersField.position" class="player-table-parent container"></app-players-table>
+    <app-players-table *ngIf="playersStaff" [players]="playersStaff.players"
+        [position]="playersStaff.position" class="player-table-parent container"></app-players-table>
 
 </section>

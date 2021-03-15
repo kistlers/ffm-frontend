@@ -1,7 +1,7 @@
-import { Component, HostListener, Input, OnInit } from "@angular/core";
-import { Player } from "../types/Player";
-import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
-import { animate, state, style, transition, trigger } from "@angular/animations";
+import {Component, HostListener, Input, OnInit} from "@angular/core";
+import {Player} from "../types/Player";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: "app-player-row",
@@ -25,7 +25,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
                 "border-bottom": "1px solid #cccccc"
             })),
             transition("open => default", animate("250ms ease-out")),
-            transition("default => open", animate("250ms ease-in")),
+            transition("default => open", animate("250ms ease-in"))
         ])
     ]
 })
@@ -46,7 +46,8 @@ export class PlayerRowComponent implements OnInit {
     }
 
     @HostListener("click", ["$event"]) onRowClick(): void {
-        this.state = (this.state === "default" ? "open" : "default");
+        this.state = (this.state === "default" ? "open" : "default"
+        );
         this.expanded = !this.expanded;
     }
 

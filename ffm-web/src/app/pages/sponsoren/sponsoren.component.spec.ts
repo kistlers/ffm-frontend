@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { SponsorenComponent } from "./sponsoren.component";
+import {SponsorenComponent} from "./sponsoren.component";
 
 describe("SponsorenComponent", () => {
     let component: SponsorenComponent;
     let fixture: ComponentFixture<SponsorenComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [SponsorenComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {

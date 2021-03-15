@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import { PlayersTableComponent } from "./players-table.component";
+import {PlayersTableComponent} from "./players-table.component";
 
 describe("TeamTableComponent", () => {
     let component: PlayersTableComponent;
     let fixture: ComponentFixture<PlayersTableComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [PlayersTableComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {

@@ -2,28 +2,28 @@
 <section class="counters6 counters cid-s5JHlKQuXY mbr-fullscreen" id="counters6-l">
 
 
-  <div class="container pt-4 mt-2">
-    <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">Sponsoren</h2>
+    <div class="container pt-4 mt-2">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">Sponsoren</h2>
 
-    <div class="row justify-content-center">
-      <div class="cards-block">
-        <div class="cards-container">
-          <div *ngFor="let sponsor of sponsors" class="card px-3 align-left col-12">
-            <div class="panel-item p-4 d-flex">
-              <div class="card-text w-100">
-                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">{{sponsor.name}}</h4>
-                <a class="w-100" [href]="sponsor.url">
-                  <div class="align-center">
-                    <img *ngIf="hasImage(sponsor)" [src]="getBase64Image(sponsor)"
-                        width="100%" class="w-md-75" alt="logo of sponsor {{sponsor.name}}}">
-                  </div>
-                </a>
-              </div>
+        <div class="row justify-content-center">
+            <div class="cards-block">
+                <div class="cards-container">
+                    <div *ngFor="let sponsor of sponsors" class="card px-3 align-left col-12">
+                        <div class="panel-item p-4 d-flex">
+                            <div class="card-text w-100">
+                                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">{{sponsor.name}}</h4>
+                                <a [href]="sponsor.url" class="w-100">
+                                    <div class="align-center">
+                                        <img *ngIf="hasImage(sponsor)" [src]="getBase64Image(sponsor)"
+                                            alt="logo of sponsor {{sponsor.name}}}" class="w-md-75" width="100%">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
 </section>

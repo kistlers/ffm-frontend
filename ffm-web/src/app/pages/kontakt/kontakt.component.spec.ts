@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { KontaktComponent } from "./kontakt.component";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
+import {KontaktComponent} from "./kontakt.component";
 
 describe("KontaktComponent", () => {
     let component: KontaktComponent;
     let fixture: ComponentFixture<KontaktComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [KontaktComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { SpieldatenComponent } from "./spieldaten.component";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
+import {SpieldatenComponent} from "./spieldaten.component";
 
 describe("SpieldatenComponent", () => {
     let component: SpieldatenComponent;
     let fixture: ComponentFixture<SpieldatenComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [SpieldatenComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {

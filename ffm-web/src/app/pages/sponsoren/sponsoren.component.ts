@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { Sponsor } from "../team/types/Sponsor";
-import { SponsorService } from "../team/service/sponsor.service";
-import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
+import {Component, OnInit} from "@angular/core";
+import {Sponsor} from "../team/types/Sponsor";
+import {SponsorService} from "../team/service/sponsor.service";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
     selector: "app-sponsoren",

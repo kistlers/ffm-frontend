@@ -1,7 +1,6 @@
 {
-    "team":  {
+    "team": {
         "table": {
-            "NUMBER": "#",
             "FIRSTNAME": "VORNAME",
             "LASTNAME": "NACHNAME",
             "YEAROFBIRTH": "JG"

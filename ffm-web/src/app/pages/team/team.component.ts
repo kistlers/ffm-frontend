@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { TeamService } from "./service/team.service";
-import { groupBy } from "lodash-es";
-import { Player, PlayerPosition } from "./types/Player";
+import {Component, OnInit} from "@angular/core";
+import {TeamService} from "./service/team.service";
+import {groupBy} from "lodash";
+import {Player, PlayerPosition} from "./types/Player";
 
 @Component({
     selector: "app-team",
