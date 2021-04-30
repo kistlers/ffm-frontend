@@ -17,6 +17,7 @@ import {
 } from "react-admin";
 import InputWrapper from "../customComponents/InputWrapper";
 import Grid from "@material-ui/core/Grid";
+import {ImageContainer} from "./Common";
 
 export const PlayerList = (props: any) => {
     return (
@@ -88,11 +89,7 @@ type Player = {
     position: PlayerPosition,
     yearOfBirth: string,
     imageMime: string,
-    image: PlayerImageContainer
-};
-
-type PlayerImageContainer = {
-    data: string
+    image: ImageContainer
 };
 
 enum PlayerPosition {
