@@ -1,4 +1,4 @@
-import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
+import {ComponentFixture, TestBed, waitForAsync} from "@angular/core/testing";
 import {PageNotFoundComponent} from "./page-not-found.component";
 
 describe("PageNotFoundComponent", () => {
@@ -6,10 +6,9 @@ describe("PageNotFoundComponent", () => {
     let fixture: ComponentFixture<PageNotFoundComponent>;
 
     beforeEach(waitForAsync(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [PageNotFoundComponent]
-        })
-        .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {
@@ -19,6 +18,6 @@ describe("PageNotFoundComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

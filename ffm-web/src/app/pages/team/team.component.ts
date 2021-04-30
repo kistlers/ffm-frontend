@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {TeamService} from "./service/team.service";
-import {groupBy} from "lodash";
+import {groupBy} from "lodash-es";
 import {Player, PlayerPosition} from "./types/Player";
 
 @Component({
@@ -26,4 +26,4 @@ export class TeamComponent implements OnInit {
     }
 }
 
-export type PlayerGroup = { position: PlayerPosition, players: Player[] };
+export type PlayerGroup = { position: PlayerPosition; players: Player[] };

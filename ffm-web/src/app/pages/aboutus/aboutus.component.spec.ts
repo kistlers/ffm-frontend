@@ -6,7 +6,7 @@ describe("AboutusComponent", () => {
     let fixture: ComponentFixture<AboutusComponent>;
 
     beforeEach(waitForAsync(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [AboutusComponent]
         })
         .compileComponents();
@@ -19,6 +19,6 @@ describe("AboutusComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

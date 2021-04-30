@@ -6,7 +6,7 @@ describe("NewsComponent", () => {
     let fixture: ComponentFixture<NewsComponent>;
 
     beforeEach(waitForAsync(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [NewsComponent]
         })
         .compileComponents();
@@ -19,6 +19,6 @@ describe("NewsComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

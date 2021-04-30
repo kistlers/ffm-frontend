@@ -37,9 +37,7 @@ export class KontaktComponent implements OnInit {
     }
 
     public isNameInvalid(): boolean {
-        return (this.name.invalid && this.name.touched
-               ) || (this.name.invalid && this.submitPressed
-               ) || this.name.dirty;
+        return (this.name.invalid && this.name.touched) || (this.name.invalid && this.submitPressed) || this.name.dirty;
     }
 
     public isEmailInvalid(): boolean {

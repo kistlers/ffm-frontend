@@ -38,17 +38,17 @@ export class PlayerRowComponent implements OnInit {
 
     constructor(private domSanitizer: DomSanitizer) { }
 
+    @HostListener("click", ["$event"]) onRowClick(): void {
+        this.state = (this.state === "default" ? "open" : "default"
+        );
+        this.expanded = !this.expanded;
+    }
+
     ngOnInit(): void {
     }
 
     getBase64Image(): SafeUrl {
         return this.domSanitizer.bypassSecurityTrustUrl(this.player.image.data);
-    }
-
-    @HostListener("click", ["$event"]) onRowClick(): void {
-        this.state = (this.state === "default" ? "open" : "default"
-        );
-        this.expanded = !this.expanded;
     }
 
     public hasImage(): boolean {

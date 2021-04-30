@@ -84,20 +84,6 @@ module.exports = {
         ],
         "@typescript-eslint/consistent-type-assertions": "error",
         "@typescript-eslint/dot-notation": "error",
-        "@typescript-eslint/indent": [
-            "error",
-            4,
-            {
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                FunctionDeclaration: {
-                    parameters: "first"
-                },
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                FunctionExpression: {
-                    parameters: "first"
-                }
-            }
-        ],
         "@typescript-eslint/member-delimiter-style": [
             "error",
             {

@@ -14,9 +14,9 @@ export class AppComponent {
         translate.setDefaultLang("de");
     }
 
-    switchLang(lang: supportedLanguages): void {
+    switchLang(lang: SupportedLanguages): void {
         this.translate.use(lang);
     }
 }
 
-export type supportedLanguages = "de";
+export type SupportedLanguages = "de";

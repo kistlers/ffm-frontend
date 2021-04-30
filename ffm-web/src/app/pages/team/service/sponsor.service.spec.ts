@@ -5,11 +5,11 @@ describe("SponsorsService", () => {
     let service: SponsorService;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        void TestBed.configureTestingModule({});
         service = TestBed.inject(SponsorService);
     });
 
     it("should be created", () => {
-        expect(service).toBeTruthy();
+        void expect(service).toBeTruthy();
     });
 });
