@@ -1,5 +1,5 @@
 import {Component, HostListener, Input, OnInit} from "@angular/core";
-import {Player} from "../types/Player";
+import {Player} from "../Player";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
