@@ -25,6 +25,7 @@
                         ],
                         "styles": [
                             "src/styles.css",
+                            "src/assets/web/assets/mobirise-icons2/mobirise2.css",
                             "src/assets/web/assets/mobirise-icons/mobirise-icons.css",
                             "src/assets/tether/tether.min.css",
                             "src/assets/dropdown/css/style.css",
