@@ -2,7 +2,6 @@ import * as React from "react";
 import {
     Create,
     Datagrid,
-    DateTimeInput,
     Edit,
     ImageField,
     ImageInput,
@@ -12,8 +11,6 @@ import {
     TextField,
     TextInput
 } from "react-admin";
-import InputWrapper from "../customComponents/InputWrapper";
-import Grid from "@material-ui/core/Grid";
 import {ImageContainer} from "./Common";
 import DateTimeFieldDeCH from "../customComponents/DateTimeFieldDeCH";
 
@@ -23,7 +20,7 @@ export const NewsList = (props: any) => {
                 <Datagrid rowClick="edit">
                     <TextField source="title" label="Titel"/>
                     <TextField source="text" label="Text"/>
-                    <DateTimeFieldDeCH source="publishTimestamp" label="publiziert ab"/>
+                    {/*<DateTimeFieldDeCH source="createdAt" label="erstellt am"/>*/}
                 </Datagrid>
             </List>
     );
@@ -31,18 +28,12 @@ export const NewsList = (props: any) => {
 
 const NewsForm = (props: any) => (
         <SimpleForm {...props} redirect="list">
-            <InputWrapper wrapperType={Grid} wrapperOptions={{container: true, spacing: 3}}>
-                <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                    <TextInput source="title" label="Titel" validate={required()}/>
-                    <TextInput source="text" label="Text" validate={required()}/>
-                    <DateTimeInput source="publishTimestamp" label="publiziert ab"/>
-                </InputWrapper>
-                <InputWrapper wrapperType={Grid} wrapperOptions={{item: true, xs: 12, md: 6, lg: 4}} addDiv>
-                    <ImageInput source="image" label="Bild (PNG)" accept="image/png" multiple={false}>
-                        <ImageField source="data"/>
-                    </ImageInput>
-                </InputWrapper>
-            </InputWrapper>
+            <TextInput source="title" label="Titel" validate={required()} fullWidth/>
+            <TextInput source="text" label="Text" validate={required()} multiline fullWidth/>
+            {/*<DateTimeFieldDeCH source="createdAt" label="erstellt am" addLabel/>*/}
+            <ImageInput source="image" label="Bild (PNG)" accept="image/png" multiple={false}>
+                <ImageField source="data"/>
+            </ImageInput>
         </SimpleForm>
 );
 
@@ -59,7 +50,7 @@ export const NewsCreate = (props: any) => (
 );
 
 const NewsTitle = ({record}: { record?: News }) => {
-    return <span>{`${record?.title}`}</span>;
+    return <span>{record?.title}</span>;
 };
 
 type News = {
