@@ -12,11 +12,10 @@ import {
     TextInput
 } from "react-admin";
 import {ImageContainer} from "./Common";
-import DateTimeFieldDeCH from "../customComponents/DateTimeFieldDeCH";
 
 export const NewsList = (props: any) => {
     return (
-            <List {...props}>
+            <List {...props} perPage={25}>
                 <Datagrid rowClick="edit">
                     <TextField source="title" label="Titel"/>
                     <TextField source="text" label="Text"/>

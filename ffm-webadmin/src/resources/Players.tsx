@@ -21,7 +21,7 @@ import {ImageContainer} from "./Common";
 
 export const PlayerList = (props: any) => {
     return (
-        <List {...props}>
+        <List {...props} perPage={25}>
             <Datagrid rowClick="edit">
                 <TextField source="firstName" label="Vorname"/>
                 <TextField source="lastName" label="Nachname"/>

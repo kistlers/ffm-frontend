@@ -21,7 +21,7 @@ export const urlValidation = regex(/(https?:\/\/)(www\.)?[-a-zA-Z0-9@:%._+~#=]{2
 
 export const SponsorList = (props: any) => {
     return (
-        <List {...props}>
+        <List {...props} perPage={25}>
             <Datagrid rowClick="edit">
                 <TextField source="name" label="Name"/>
                 <TextField source="url" label="Url"/>
