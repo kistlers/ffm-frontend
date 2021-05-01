@@ -13,6 +13,10 @@ export class NewsService {
     constructor(private http: HttpClient) { }
 
     getAllNews(): Observable<News[]> {
-        return this.http.get<News[]>(this.baseUrl + "/v1/news");
+        return this.http.get<News[]>(`${this.baseUrl}/v1/news`);
+    }
+
+    getNewsById(id: number): Observable<News> {
+        return this.http.get<News>(`${this.baseUrl}/v1/news/${id}`);
     }
 }

@@ -1,0 +1,29 @@
+<section class="counters5 counters cid-s5VnvLnsem mbr-fullscreen" id="counters5-z" style="flex-direction: column">
+
+
+    <div class="container my-5">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center pb-3 mbr-fonts-style display-2">
+                    {{news.title}}
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="media-container-row">
+            <div class="mbr-text col-12 mbr-fonts-style display-7 col-md-8">
+                <p class="">{{news.text}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container images-container mt-5">
+        <div class="media-container-row">
+            <div class="img-item item1">
+                <img *ngIf="hasImage(news)" [src]="getBase64Image(news)" alt="image of news" width="100%">
+            </div>
+        </div>
+    </div>
+</section>

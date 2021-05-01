@@ -13,6 +13,6 @@ export class SponsorService {
     constructor(private http: HttpClient) { }
 
     getAllSponsors(): Observable<Sponsor[]> {
-        return this.http.get<Sponsor[]>(this.baseUrl + "/v1/sponsors");
+        return this.http.get<Sponsor[]>(`${this.baseUrl}/v1/sponsors`);
     }
 }

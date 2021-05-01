@@ -13,6 +13,6 @@ export class TeamService {
     constructor(private http: HttpClient) { }
 
     getAllPlayers(): Observable<Player[]> {
-        return this.http.get<Player[]>(this.baseUrl + "/v1/players");
+        return this.http.get<Player[]>(`${this.baseUrl}/v1/players`);
     }
 }

@@ -15,12 +15,10 @@ export class SponsorenComponent implements OnInit {
     constructor(private sponsorService: SponsorService, private domSanitizer: DomSanitizer) {}
 
     ngOnInit(): void {
-        this.sponsorService.getAllSponsors().subscribe(sponsors => {
-            this.sponsors = sponsors;
-        });
+        this.sponsorService.getAllSponsors().subscribe(sponsors => this.sponsors = sponsors);
     }
 
-    getBase64Image(sponsor: Sponsor): SafeUrl {
+    public getBase64Image(sponsor: Sponsor): SafeUrl {
         return this.domSanitizer.bypassSecurityTrustUrl(sponsor.image.data);
     }
 

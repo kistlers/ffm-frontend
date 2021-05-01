@@ -21,6 +21,8 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {PlayerRowComponent} from "./pages/team/player-row/player-row.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { TruncatePipe } from './shared/pipes/truncate.pipe';
+import { NewsDetailComponent } from './pages/news/news-detail/news-detail.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +36,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
         KontaktComponent,
         SponsorenComponent,
         PlayersTableComponent,
-        PlayerRowComponent
+        PlayerRowComponent,
+        TruncatePipe,
+        NewsDetailComponent
     ],
     imports: [
         BrowserModule,
