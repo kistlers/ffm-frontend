@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { KontaktComponent } from "./kontakt.component";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
+import {KontaktComponent} from "./kontakt.component";
 
 describe("KontaktComponent", () => {
     let component: KontaktComponent;
     let fixture: ComponentFixture<KontaktComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
             declarations: [KontaktComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {
@@ -20,6 +19,6 @@ describe("KontaktComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

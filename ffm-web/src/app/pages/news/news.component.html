@@ -1,63 +1,21 @@
-<section class="engine"><a href="https://mobirise.info/f">easy site creator</a></section>
 <section class="counters5 counters cid-s5VnvLnsem mbr-fullscreen" id="counters5-z">
 
 
-  <div class="container pt-4 mt-2">
-    <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">News</h2>
-    <h3 class="mbr-section-subtitle pb-5 align-center mbr-fonts-style display-5">
-      Responsive block with counters and media.
-    </h3>
-    <div class="row justify-content-center">
-      <div class="cards-block">
-        <div class="cards-container">
-          <div class="card px-3 align-left col-12">
-            <div class="panel-item p-4 d-flex">
-              <div class="card-img pr-3">
-                <h3 class="img-text d-flex align-items-center justify-content-center">
-                  1
-                </h3>
-              </div>
-              <div class="card-text">
-                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">Honest and Dependable</h4>
-                <p class="mbr-content-text mbr-fonts-style display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cupiditate rerum ipsum tempora
-                  vero.</p>
-              </div>
-            </div>
-          </div>
-          <div class="card px-3 align-left col-12">
-            <div class="panel-item p-4 d-flex">
-              <div class="card-img pr-3">
-                <h3 class="img-text d-flex align-items-center justify-content-center">
-                  2
-                </h3>
-              </div>
-              <div class="card-text">
-                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">We Are Always Improving</h4>
-                <p class="mbr-content-text mbr-fonts-style display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card px-3 align-left col-12">
-            <div class="panel-item p-4 d-flex">
-              <div class="card-img pr-3">
-                <h3 class="img-text d-flex align-items-center justify-content-center">
-                  3
-                </h3>
-              </div>
-              <div class="card-text">
-                <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-7">We Are Passionate</h4>
-                <p class="mbr-content-text mbr-fonts-style display-7">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae cupiditate rerum ipsum tempora
-                  vero.</p>
-              </div>
-            </div>
-          </div>
+    <div class="container pt-4 mt-2">
+        <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-2">News</h2>
 
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4" *ngFor="let news of newsList">
+                <div class="card bg-white border">
+                    <img *ngIf="hasImage(news)" [src]="getBase64Image(news)"
+                        alt="image of news" class="card-img-top " width="100%">
+                    <div class="card-body">
+                        <h5 class="card-title">{{news.title}}</h5>
+                        <p class="card-text">{{news.text | truncate:100: true}}</p>
+                        <a [routerLink]="['/news', news.id]" class="btn btn-primary btn-sm">Weiterlesen</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>

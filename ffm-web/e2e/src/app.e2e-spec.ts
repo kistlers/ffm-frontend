@@ -1,23 +1,23 @@
-import { AppPage } from "./app.po";
-import { browser, logging } from "protractor";
+import {AppPage} from "./app.po";
+import {browser, logging} from "protractor";
 
 describe("workspace-project App", () => {
-  let page: AppPage;
+    let page: AppPage;
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
+    beforeEach(() => {
+        page = new AppPage();
+    });
 
-  it("should display welcome message", () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual("ffm-web app is running!");
-  });
+    it("should display welcome message", () => {
+        void page.navigateTo();
+        void expect(page.getTitleText()).toEqual("ffm-web app is running!");
+    });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
+    afterEach(async () => {
+        // Assert that there are no errors emitted from the browser
+        const logs = await browser.manage().logs().get(logging.Type.BROWSER);
+        void expect(logs).not.toContain(jasmine.objectContaining({
+            level: logging.Level.SEVERE
+        } as logging.Entry));
+    });
 });

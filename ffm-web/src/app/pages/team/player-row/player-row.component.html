@@ -1,59 +1,61 @@
-<div class="player-table-element player-table-col1" [ngClass]="{'gray-background': expanded}">
-  {{expanded ? "" : player.playerNumber}}
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col1">
+    {{expanded ? "" : player.playerNumber}}
 </div>
-<div class="player-table-element player-table-col2" [ngClass]="{'gray-background': expanded}">
-  {{expanded ? "" : player.firstName}}
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col2">
+    {{expanded ? "" : player.firstName}}
 </div>
-<div class="player-table-element player-table-col3" [ngClass]="{'gray-background': expanded}">
-  {{expanded ? "" : player.lastName}}
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col3">
+    {{expanded ? "" : player.lastName}}
 </div>
-<div fxShow fxShow.xs="false" class="player-table-element player-table-col4" [ngClass]="{'gray-background': expanded}">
-  {{expanded ? "" : player.yearOfBirth}}
-</div>
-
-<div fxShow fxShow.xs="false" class="player-table-element player-table-col5 player-table-last-col" [ngClass]="{'gray-background': expanded}">
-  <img src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
-</div>
-<div fxHide fxHide.xs="false" class="player-table-element player-table-col4 player-table-last-col" [ngClass]="{'gray-background': expanded}">
-  <img src="assets/web/assets/icons/chevron-down.svg" alt="downward chevron" [@rotate180]="state">
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col4" fxShow fxShow.xs="false">
+    {{expanded ? "" : player.yearOfBirth}}
 </div>
 
-<div class="player-table-detail" [@expandRow]="state">
-  <div class="player-detail-content">
-    <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" width="100%" class="player-detail-image">
-  </div>
-  <div class="player-detail-content">
-    <div *ngIf="player.playerNumber" class="player-detail-info">
-      <div class="player-detail-text">
-        {{player.playerNumber}}
-      </div>
-      <div class="player-detail-text-description">
-        {{ "player.number" | translate }}
-      </div>
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col5 player-table-last-col" fxShow
+    fxShow.xs="false">
+    <img [@rotate180]="state" alt="downward chevron" src="assets/web/assets/icons/chevron-down.svg">
+</div>
+<div [ngClass]="{'gray-background': expanded}" class="player-table-element player-table-col4 player-table-last-col" fxHide
+    fxHide.xs="false">
+    <img [@rotate180]="state" alt="downward chevron" src="assets/web/assets/icons/chevron-down.svg">
+</div>
+
+<div [@expandRow]="state" class="player-table-detail">
+    <div class="player-detail-content">
+        <img *ngIf="hasImage()" [src]="getBase64Image()" alt="player image" class="player-detail-image" width="100%">
     </div>
-    <div class="player-detail-info">
-      <div class="player-detail-text">
-        {{player.firstName}}
-      </div>
-      <div class="player-detail-text-description">
-        {{ "player.lastname" | translate }}
-      </div>
+    <div class="player-detail-content">
+        <div *ngIf="player.playerNumber" class="player-detail-info">
+            <div class="player-detail-text">
+                {{player.playerNumber}}
+            </div>
+            <div class="player-detail-text-description">
+                {{ "player.number" | translate }}
+            </div>
+        </div>
+        <div class="player-detail-info">
+            <div class="player-detail-text">
+                {{player.firstName}}
+            </div>
+            <div class="player-detail-text-description">
+                {{ "player.lastname" | translate }}
+            </div>
+        </div>
+        <div class="player-detail-info">
+            <div class="player-detail-text">
+                {{player.lastName}}
+            </div>
+            <div class="player-detail-text-description">
+                {{ "player.lastname" | translate }}
+            </div>
+        </div>
+        <div *ngIf="player.yearOfBirth" class="player-detail-info">
+            <div class="player-detail-text">
+                {{player.yearOfBirth}}
+            </div>
+            <div class="player-detail-text-description">
+                {{ "player.yearofbirth" | translate }}
+            </div>
+        </div>
     </div>
-    <div class="player-detail-info">
-      <div class="player-detail-text">
-        {{player.lastName}}
-      </div>
-      <div class="player-detail-text-description">
-        {{ "player.lastname" | translate }}
-      </div>
-    </div>
-    <div *ngIf="player.yearOfBirth" class="player-detail-info">
-      <div class="player-detail-text">
-        {{player.yearOfBirth}}
-      </div>
-      <div class="player-detail-text-description">
-        {{ "player.yearofbirth" | translate }}
-      </div>
-    </div>
-  </div>
 </div>

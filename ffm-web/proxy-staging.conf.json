@@ -1,0 +1,8 @@
+{
+    "/api": {
+        "target": "https://r15e.internet-box.ch",
+        "secure": true,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

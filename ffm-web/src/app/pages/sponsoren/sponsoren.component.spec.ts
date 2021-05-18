@@ -1,16 +1,16 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {ComponentFixture, TestBed, waitForAsync} from "@angular/core/testing";
 
-import { SponsorenComponent } from "./sponsoren.component";
+import {SponsorenComponent} from "./sponsoren.component";
 
 describe("SponsorenComponent", () => {
     let component: SponsorenComponent;
     let fixture: ComponentFixture<SponsorenComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
             declarations: [SponsorenComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {
@@ -20,6 +20,6 @@ describe("SponsorenComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

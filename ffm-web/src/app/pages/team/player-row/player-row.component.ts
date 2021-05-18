@@ -1,7 +1,7 @@
-import { Component, HostListener, Input, OnInit } from "@angular/core";
-import { Player } from "../types/Player";
-import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
-import { animate, state, style, transition, trigger } from "@angular/animations";
+import {Component, HostListener, Input, OnInit} from "@angular/core";
+import {Player} from "../Player";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
     selector: "app-player-row",
@@ -13,8 +13,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
             state("open", style({
                 transform: "rotate(180deg)"
             })),
-            transition("open => default", animate("300ms ease-out")),
-            transition("default => open", animate("300ms ease-in"))
+            transition("open => default", animate("250ms ease-out")),
+            transition("default => open", animate("250ms ease-in"))
         ]),
         trigger("expandRow", [
             state("default", style({height: 0})),
@@ -24,8 +24,8 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
                 padding: ".75rem",
                 "border-bottom": "1px solid #cccccc"
             })),
-            transition("open => default", animate("300ms ease-out")),
-            transition("default => open", animate("300ms ease-in")),
+            transition("open => default", animate("250ms ease-out")),
+            transition("default => open", animate("250ms ease-in"))
         ])
     ]
 })
@@ -38,16 +38,17 @@ export class PlayerRowComponent implements OnInit {
 
     constructor(private domSanitizer: DomSanitizer) { }
 
+    @HostListener("click", ["$event"]) onRowClick(): void {
+        this.state = (this.state === "default" ? "open" : "default"
+        );
+        this.expanded = !this.expanded;
+    }
+
     ngOnInit(): void {
     }
 
     getBase64Image(): SafeUrl {
         return this.domSanitizer.bypassSecurityTrustUrl(this.player.image.data);
-    }
-
-    @HostListener("click", ["$event"]) onRowClick(): void {
-        this.state = (this.state === "default" ? "open" : "default");
-        this.expanded = !this.expanded;
     }
 
     public hasImage(): boolean {

@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { NewsComponent } from "./news.component";
+import {waitForAsync, ComponentFixture, TestBed} from "@angular/core/testing";
+import {NewsComponent} from "./news.component";
 
 describe("NewsComponent", () => {
     let component: NewsComponent;
     let fixture: ComponentFixture<NewsComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
             declarations: [NewsComponent]
         })
-                .compileComponents();
+        .compileComponents();
     }));
 
     beforeEach(() => {
@@ -20,6 +19,6 @@ describe("NewsComponent", () => {
     });
 
     it("should create", () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 });

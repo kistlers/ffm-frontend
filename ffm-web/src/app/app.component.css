@@ -1,3 +1,7 @@
 .activeTab {
     border-bottom: 2px solid currentColor;
 }
+
+.bg-f9f9f9 {
+    background-color: #f9f9f9;
+}

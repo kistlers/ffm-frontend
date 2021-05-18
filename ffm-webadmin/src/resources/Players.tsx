@@ -17,10 +17,11 @@ import {
 } from "react-admin";
 import InputWrapper from "../customComponents/InputWrapper";
 import Grid from "@material-ui/core/Grid";
+import {ImageContainer} from "./Common";
 
 export const PlayerList = (props: any) => {
     return (
-        <List {...props}>
+        <List {...props} perPage={25}>
             <Datagrid rowClick="edit">
                 <TextField source="firstName" label="Vorname"/>
                 <TextField source="lastName" label="Nachname"/>
@@ -88,11 +89,7 @@ type Player = {
     position: PlayerPosition,
     yearOfBirth: string,
     imageMime: string,
-    image: PlayerImageContainer
-};
-
-type PlayerImageContainer = {
-    data: string
+    image: ImageContainer
 };
 
 enum PlayerPosition {

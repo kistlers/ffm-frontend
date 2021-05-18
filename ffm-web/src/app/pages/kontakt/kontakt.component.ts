@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from "@angular/core";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
     selector: "app-kontakt",
@@ -19,7 +19,7 @@ export class KontaktComponent implements OnInit {
             Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]),
         message: new FormControl("", [
             Validators.required,
-            Validators.pattern(/^.*[a-z0-9]+.*$/)]),
+            Validators.pattern(/^.*[a-z0-9]+.*$/)])
     });
 
     constructor() { }
@@ -41,11 +41,15 @@ export class KontaktComponent implements OnInit {
     }
 
     public isEmailInvalid(): boolean {
-        return (this.email.invalid && this.email.touched) || (this.email.invalid && this.submitPressed) || this.email.dirty;
+        return (this.email.invalid && this.email.touched
+               ) || (this.email.invalid && this.submitPressed
+               ) || this.email.dirty;
     }
 
     public isMessageInvalid(): boolean {
-        return (this.message.invalid && this.message.touched) || (this.message.invalid && this.submitPressed) || this.message.dirty;
+        return (this.message.invalid && this.message.touched
+               ) || (this.message.invalid && this.submitPressed
+               ) || this.message.dirty;
     }
 
     public submitDisabled(): boolean {
